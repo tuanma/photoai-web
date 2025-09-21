@@ -1,0 +1,63 @@
+<div class="app-body">
+	<main class="c-app flex-row align-items-center" style="margin: 0 auto;">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12">
+					<div class="card-group" style="min-width: 420px">
+						<div class="card p-4">
+							<div class="card-header text-center">
+								<img class="navbar-brand-full" src="assets/images/Logo.png" width="250px" alt="Translator - MTech">
+								<div class="row">
+									<div class="col-12">
+										<h1>Login</h1>
+									</div>
+								</div>
+								<div class="row">
+									<p class="col-12 text-muted">Login to the admin system</p>
+								</div>
+							</div>
+							<div class="card-body">
+								<!--start-showLoading end-->
+								<div class="col-12 text-center" *ngIf="loading">
+									<div class="spinner-border text-primary" role="status">
+										<span class="sr-only">Loading...</span>
+									</div>
+								</div>
+								<!--process-showLoading end-->
+								<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+									<alert></alert>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="icon-user"></i></span>
+										</div>
+										<input type="text" formControlName="userName" placeholder="Email or Phone" autocomplete="userName" class="form-control" [ngClass]="{ 'is-invalid': f.userName.errors }" />
+										<div *ngIf="f.userName.errors" class="invalid-feedback">
+											<div *ngIf="f.userName.errors.required">Username is required</div>
+										</div>
+									</div>
+									<div class="input-group mb-4">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="icon-lock"></i></span>
+										</div>
+										<input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': f.password.errors }" />
+										<div *ngIf="f.password.errors" class="invalid-feedback">
+											<div *ngIf="f.password.errors.required">Password is required</div>
+										</div>
+									</div>
+									<div class="row justify-content-center">
+										<div class="col-6 text-right">
+											<a routerLink="/forgot-password" class="btn btn-link px-0">Forgot password?</a>
+										</div>
+										<div class="col-6">
+											<button type="submit" class="btn btn-primary px-4">LogIn</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</div>

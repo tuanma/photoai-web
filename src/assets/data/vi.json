@@ -1,0 +1,128 @@
+{
+	"Campaign" : "Campaign",
+	"Common": {
+		"NoPermission": "Bạn chưa được cấp quyền sử dụng tính năng này.\n Liên hệ admin để được cấp quyền.",
+		"Settings": "Cấu hình",
+		"Cancel": "Hủy",
+		"NumberOrder": "STT",
+		"Action": "Hành động",
+		"Inactive": "Xóa",
+		"Details": "Chi tiết",
+		"Previous": "Trang trước",
+		"Next": "Trang sau",
+		"Update": "Cập nhật",
+		"Create": "Tạo mới",
+		"Description": "Mô tả",
+		"DescriptionValidation": "Mô tả không được để trống",
+		"CreateDate": "Ngaỳ tạo",
+		"Email": "Email",
+		"EmailValidation": "Email không được để trống",
+		"VerifyButton": "Xác minh",
+		"ResendButton": "Gửi lại",
+		"Status": "Trạng thái",
+		"Back": "Quay Lại"
+	},
+	"Header": {
+		"Home": "Trang chủ",
+		"Function": "Chức năng",
+		"Price": "Bảng giá",
+		"Partner": "Đối tác",
+		"Hotline": "0981 068 900",
+		"Contact": "Liên hệ",
+		"Login": "Đăng nhập",
+		"Register": "Đăng ký",
+		"Logout": "Đăng xuất"
+	},
+	"Home": {
+		"Slide": {
+			"Title": "Phần mềm quản lý trường học EPoint",
+			"Desc": "Tự động hóa mọi thứ. Mô-đun ưu việt. Một nâng cấp mạnh mẽ ERP. Đáp ứng tất cả các trường học, trung tâm đào tạo."
+		},	
+		"Wellprice": "Chỉ với 10 000 000/năm cho mỗi trường và không giới hạn sinh viên, quản trị riêng biệt, lưu trữ riêng, ứng dụng di động miễn phí",
+		"Why": "Tại sao chọn chúng tôi?",
+		"Features": {
+			"Tech": {
+				"Title": "TỔNG QUAN CÔNG NGHỆ",
+				"Desc": "EPoint sử dụng công nghệ tốt nhất để phát triển. Phần mềm EPoint có giao diện mượt mà, truyền dữ liệu nhanh, chức năng tối ưu hóa và bảo mật tốt nhất"
+			},
+			"Safe": {
+				"Title": "100% AN TOÀN VÀ KHÔNG CÓ RỦI RO",
+				"Desc": "An ninh là mối quan tâm của mọi người và đó là ưu tiên hàng đầu của chúng tôi để phát triển. Chúng tôi đảm bảo bảo mật hoàn toàn cho dữ liệu và cung cấp một phần mềm quản lý trường học an toàn tuyệt đối và không có rủi ro."
+			},
+			"Price": {
+				"Title": "GIÁ CẠNH TRANH",
+				"Desc": "EPoint cung cấp các gói dịch vụ hấp dẫn khác nhau cho các trường học. Người dùng có thể tự chọn mô-đun trong gói dịch vụ phù hợp để làm việc và trả phí theo từng mô-đun dịch vụ bạn sử dụng"
+			},
+			"Design": {
+				"Title": "THIẾT KẾ NGƯỜI DÙNG THÂN THIỆN",
+				"Desc": "Người dùng có thể truy cập mọi thứ chỉ bằng một cú nhấp chuột với thiết kế đơn giản và thuận tiện của phần mềm quản lý trường học."
+			},
+			"SecurePayment": {
+				"Title": "THANH TOÁN AN TOÀN",
+				"Desc": "EPoint cung cấp cổng thanh toán mã hóa SSL 256-bit an toàn trong phần mềm quản lý trường học. EPoint cung cấp kết nối an toàn cho tất cả các giao dịch thanh toán"
+			},
+			"Support": {
+				"Title": "HỖ TRỢ KHÁCH HÀNG 24X7",
+				"Desc": "EPoint luôn sẵn sàng hỗ trợ cho khách hàng 24/7, luôn sẵn sàng đáp ứng và cung cấp các dịch vụ cũng như việc trải nghiệm của khách hàng. EPoint mong muốn mang đến sự trải nghiệm vượt trội cho tất cả các khách hàng."
+			},
+			"Backup": {
+				"Title": "TÙY CHỌN SAO LƯU DỄ DÀNG",
+				"Desc": "Để cung cấp sự an toàn hơn, người dùng có tạo bản sao lưu dữ liệu và cập nhập dữ liệu đó bất cứ lúc nào."
+			},
+			"Custom": {
+				"Title": "TÙY CHỈNH",
+				"Desc": "EPoint người dùng có thể tùy chỉnh cấu hình chức năng hệ thống để đáp ứng với công việc ERP tự động. EPoint cũng thực hiện tùy chỉnh cho người dùng trong chế độ phát triển để cho phép thực hiện công việc hiệu quả tối đa và dễ dàng."
+			},
+			"Extend": {
+				"Title": "CÁC TÍNH NĂNG MỞ RỘNG",
+				"Desc": "EPoint cung cấp rất nhiều các tính năng hữu ích cho người dùng trong phần mềm trường học. Các tính năng hoạt động như một hệ thống tự động giúp kiểm soát dễ dàng và thực hiện hoàn thành công việc nhanh chóng."
+			},
+			"SafetyCloud": {
+				"Title": "AN TOÀN ĐÁM MÂY",
+				"Desc": "EPoint đang sử dụng máy chủ lưu trữ hàng đầu thế giới, do đó người dùng sẽ có thể sử dụng phần mềm quản lý trường học EPoint mọi lúc, mọi nơi. Người dùng sẽ có thể kiểm tra hoặc tải lên dữ liệu nhanh chóng mà không gặp rắc rối nào. Tất cả người dùng cần một thiết bị, trình duyệt và kết nối internet, phần còn lại EPoint sẽ tự xử lý"
+			},
+			"RealTime": {
+				"Title": "TRUY CẬP THỜI GIAN THỰC",
+				"Desc": "EPoint cung cấp truy cập và lưu trữ dữ liệu theo thời gian thực. Qua đó giúp người dùng di chuyển và sử dụng dữ liệu nhanh hơn theo nhu cầu mà không cần tải lại nhiều lần."
+			},
+			"Language": {
+				"Title": "HỖ TRỢ ĐA NGÔN NGỮ",
+				"Desc": "EPoint cung cấp nhiều ngôn ngữ hỗ trợ trong phần mềm quản lý trường học để người dùng có thể truy cập dữ liệu bằng ngôn ngữ của họ và tập trung vào công việc mà không lo ngoại về rào cản ngôn ngữ."
+			},
+			"Refund": {
+				"Title": "HOÀN TIỀN SAU 15 NGÀY",
+				"Desc": "Khi sử dụng phần mềm quản lý trường học EPoint nếu bạn thấy phần mềm EPoint không phù hợp với bạn, trong vòng 15 ngày bạn được hoàn lại toàn bộ chi phí."
+			},
+			"Option": {
+				"Title": "TÙY CHỈNH CHỨC NĂNG",
+				"Desc": "Gọi cho chúng tôi và cho chúng tôi yêu cầu chỉnh sửa cho bất kỳ mô-đun trong phần mềm quản lý trường học. EPoint cung cấp giải pháp tùy chỉnh tốt nhất theo yêu cầu của người dùng."
+			},
+			"Update": {
+				"Title": "CẬP NHẬT MIỄN PHÍ PHẦN MỀM",
+				"Desc": "EPoint phát hành phiên bản nâng cấp của phần mềm quản lý trường học với các mô-đun mới theo thời gian. Người dùng sẽ nhận được tất cả các tính năng và mô-đun được cập nhật theo thời gian để làm cho ERP tự động và hoạt động tốt hơn."
+			},
+			"AddFunction": {
+				"Title": "CHỨC NĂNG BỔ SUNG",
+				"Desc": "EPoint tích hợp và hiện thực hóa các chức năng mới trong ERP trường học để làm cho nó tốt hơn, nhanh chóng và dễ sử dụng."
+			}
+		},
+		"PowerEPoint": {
+			"Title": "Phần mềm quản lý trường học đơn giản, mạnh mẽ và ưu việt",
+			"Easy": "Đơn giản và dễ sử dụng cho mọi người",
+			"EasyDesc": "Được thiết kế để thu hút mọi thành viên trong trường. Không yêu cầu bạn có chuyên môn sử dụng phần mềm. Đây là phần mềm quản lý trường học dễ dàng, giá rẻ, nhanh chóng và không gặp sự cố.",
+			"PowerModule": "Mô-đun ưu tú mạnh mẽ cho tất cả mọi người",
+			"PowerModuleDesc": "EPoint cung cấp các mô-đun cần thiết để vận hành trường học, cao đẳng và các tổ chức một cách trơn tru. Các tính năng ưu việt trong phần mềm quản lý trường học giúp tiết kiệm thời gian và chi phí.",
+			"Automation": "Nhanh chóng và tự động hóa ERP cho mọi người",
+			"AutomationDesc": "EPoint cung cấp các mô-đun hoạt động tự động trong phần mềm quản lý trường học. Tất cả các mô-đun được thiết kế để làm việc nhanh chóng trong mọi công việc."
+		},
+		"AboutUs": {
+				"Customer": "Khách hàng nói về chúng tôi",
+				"Internet": "Báo chí nói gì về chúng tôi"
+		}
+		
+	},
+	"Button": {
+		"More": "Chi tiết",
+		"Callus": "Gọi chúng tôi"
+	}
+}

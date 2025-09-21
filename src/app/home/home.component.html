@@ -1,0 +1,215 @@
+<!-- Hero Section -->
+<section class="hero-section">
+	<div class="hero-container">
+		<div class="hero-content">
+			<h1 class="hero-title">Scan QR Codes Instantly</h1>
+			<p class="hero-subtitle">The fastest and most reliable QR code scanner for your mobile device. Scan any QR code with just one tap.</p>
+			<div class="hero-buttons">
+				<a class="app-store-btn" href="https://apps.apple.com/us/app/qr-code-reader-barcode-qr/id6747792526" target="_blank" rel="noopener">
+					<span class="apple-logo" aria-hidden="true"></span>
+					<span class="app-store-text">
+						<span class="small-text">Download on the</span>
+						<span class="big-text">App Store</span>
+					</span>
+				</a>
+				<button class="btn-secondary" (click)="tryOnline()">Try Online</button>
+			</div>
+		</div>
+		<div class="hero-image">
+			<div class="phone-mockup">
+				<div class="screen">
+					<div class="qr-scanner-interface">
+						<div class="scanner-frame">
+							<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+								<img src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&size=196x196" alt="QR Code" style="width: 196px; height: 196px; border-radius: 20px; background: #fff;" />
+							</div>
+						</div>
+						<div class="scan-line"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Features Section -->
+<section class="scanqr-image-section">
+	<div class="container">
+		<h2 class="section-title">Scan QR code from image</h2>
+		<p class="section-desc">Simply upload an image or take a photo of a QR code to reveal its content</p>
+		<div class="scanqr-image-grid">
+			<!-- Select QR Image -->
+			<div class="scanqr-upload-card">
+				<div class="scanqr-upload-header">
+					<i class="fas fa-check-circle"></i> Select QR Image
+				</div>
+				<div class="scanqr-upload-drop" (drop)="onDrop($event)" (dragover)="onDragOver($event)" (click)="fileInput.click()">
+					<input type="file" accept="image/*" (change)="onFileChange($event)" hidden #fileInput>
+					<img src="assets/images/upload.webp" alt="Upload" class="scanqr-upload-icon">
+					<div class="scanqr-upload-title"><b>Drag & Drop or Browse</b></div>
+					<div class="scanqr-upload-desc">All image types allowed.</div>
+				</div>
+				<div class="scanqr-upload-footer">
+					<small>
+						<i class="fas fa-lock"></i> Built with the most used and <a href="https://github.com/zxing-js/library" target="_blank">secure Google's Zxing library</a>.
+					</small>
+				</div>
+			</div>
+			<!-- Scanned Data -->
+			<div class="scanqr-result-card">
+				<div class="scanqr-result-header">
+					<i class="fas fa-qrcode"></i> Scanned Data
+				</div>
+				<textarea class="scanqr-result-text" readonly [value]="scannedData || 'Scan a QR code to view the results here.'"></textarea>
+				<button class="scanqr-copy-btn" (click)="copyResults()">
+					<i class="fas fa-paperclip"></i> Copy Results
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Webcam QR code scanner Section -->
+<section class="webcam-qr-section">
+	<div class="container">
+		<h2 class="section-title">Webcam QR code scanner</h2>
+		<p class="section-desc">Click "Open camera" &amp; point the QR toward it</p>
+		<div class="webcam-qr-grid">
+			<!-- Webcam Card -->
+			<div class="webcam-card">
+				<div class="webcam-header">
+					<i class="fas fa-video"></i> Webcam
+				</div>
+				<div class="webcam-video-area">
+					<div class="webcam-placeholder">
+						<span class="webcam-info"><i class="fas fa-info-circle"></i> Make sure to allow camera access!</span>
+					</div>
+				</div>
+				<button class="webcam-open-btn" disabled>
+					<i class="fas fa-camera"></i> Open Camera
+				</button>
+			</div>
+			<!-- Scanned Data Card -->
+			<div class="webcam-result-card">
+				<div class="webcam-result-header">
+					<i class="fas fa-qrcode"></i> Scanned Data
+				</div>
+				<textarea class="webcam-result-text" readonly>Scan a QR code to view the results here.</textarea>
+				<button class="webcam-copy-btn" disabled>
+					<i class="fas fa-paperclip"></i> Copy Results
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works-section">
+	<div class="container">
+		<h2 class="section-title">How It Works</h2>
+		<div class="steps-grid">
+			<div class="step">
+				<div class="step-number">1</div>
+				<h3>Open App</h3>
+				<p>Launch Scan QR Reader on your device</p>
+			</div>
+			<div class="step">
+				<div class="step-number">2</div>
+				<h3>Point Camera</h3>
+				<p>Aim at any QR code</p>
+			</div>
+			<div class="step">
+				<div class="step-number">3</div>
+				<h3>Get Results</h3>
+				<p>Instantly see the content</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Download Section -->
+<section class="download-section">
+	<div class="container">
+		<div class="download-content">
+			<h2>Ready to Start Scanning?</h2>
+			<p>Download Scan QR Reader now and experience the fastest QR code scanning</p>
+			<div class="download-buttons">
+				<a class="app-store-btn" href="https://apps.apple.com/us/app/qr-code-reader-barcode-qr/id6747792526" target="_blank" rel="noopener">
+					<span class="apple-logo" aria-hidden="true"></span>
+					<span class="app-store-text">
+						<span class="small-text">Download on the</span>
+						<span class="big-text">App Store</span>
+					</span>
+				</a>
+				<a class="google-play-btn" href="#" target="_blank" rel="noopener">
+					<span class="google-play-logo" aria-hidden="true"></span>
+					<span class="google-play-text">
+						<span class="small-text">Get it on</span>
+						<span class="big-text">Google Play</span>
+						<span class="coming-soon">Coming soon</span>
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- QR code types Section -->
+<section class="qr-types-section">
+	<div class="container qr-types-container">
+		<div class="qr-types-table">
+			<h2 class="qr-types-title">QR code types</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td class="qr-type-url">URL</td><td>link to any webpage</td></tr>
+					<tr><td class="qr-type-text">Text</td><td>represents plain text</td></tr>
+					<tr><td class="qr-type-location">Location</td><td>for a geographical position (Google maps)</td></tr>
+					<tr><td class="qr-type-wifi">WiFi</td><td>connects to a wireless network</td></tr>
+					<tr><td class="qr-type-vcard">vCard</td><td>visiting card (<a href="#" class="qr-type-link">digital business card</a>)</td></tr>
+					<tr><td class="qr-type-sms">SMS</td><td>for sending SMS on a smartphone</td></tr>
+					<tr><td class="qr-type-call">Call</td><td>starts a phone call</td></tr>
+					<tr><td class="qr-type-event">Event</td><td>triggers calendar entry for any event</td></tr>
+					<tr><td class="qr-type-mail">Mail</td><td>initiates email draft to a recipient</td></tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="qr-types-examples">
+			<h3 class="qr-types-examples-title">QR CODE<br/>TYPES, USES & EXAMPLES</h3>
+			<div class="qr-types-examples-desc">There are no types of QR codes. A QR code contains a character string as payload. The QR code is always just a QR code, i.e. a coded representation of a chain of bytes.</div>
+			<div class="qr-types-examples-grid">
+				<div class="qr-example qr-example-yellow"><b>TEXT:</b> Hello! this is plain text example.</div>
+				<div class="qr-example qr-example-yellow"><b>LOCATION:</b> geo:&lt;lat&gt;,&lt;long&gt;,&lt;alt&gt;<br/><span class="qr-example-note">example: geo:40.71872,-73.98905,100</span></div>
+				<div class="qr-example qr-example-white"><b>vCard:</b><br/>BEGIN:VCARD<br/>VERSION:2.1<br/>N:Franz Testhuber<br/>FN:Testhuber;Franz<br/>TITLE:Professor<br/>TEL;CELL:+1 555 1234 56<br/>EMAIL:HOME;INTERNET:ich&#64;du.da<br/>URL:https://exmaple.com/zeuq.html<br/>ADR:;irgendwo;weg;Berlin;;12345;Germany<br/>END:VCARD</div>
+				<div class="qr-example qr-example-yellow"><b>SMS:</b> SMSTO:&lt;nummer&gt;:&lt;text&gt;<br/><span class="qr-example-note">example: SMSTO:4915112345678:Hurga</span></div>
+				<div class="qr-example qr-example-blue"><b>EVENTS:</b> BEGIN:VEVENT<br/>SUMMARY:Biergarten<br/>DTSTART:20190105T220000Z<br/>DTEND:20190105T110000Z<br/>END:VEVENT</div>
+				<div class="qr-example qr-example-white"><b>E-MAIL:</b> MATMSG:TO:ich&#64;du.da;<br/>SUB:Betreff;<br/>BODY:Hallo da draussen;;</div>
+				<div class="qr-example qr-example-yellow"><b>WIFI ACCESS:</b> WIFI:S:tenda;T:WPA;P:dsh&#64;sd;;<br/><span class="qr-example-note">Network Name&nbsp;&nbsp;Network Type&nbsp;&nbsp;WiFi Password</span></div>
+				<div class="qr-example qr-example-blue"><b>CALL:</b> tel:&lt;nummer&gt;</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+	<div class="container">
+		<h2 class="faq-title">Scan QR code FAQ's</h2>
+		<div class="faq-list">
+			<div *ngFor="let faq of faqs; let i = index" class="faq-item" [class.active]="openedFaqIndex === i">
+				<div class="faq-question" (click)="toggleFaq(i)">
+					{{ faq.question }}
+					<span class="faq-arrow" [class.open]="openedFaqIndex === i">&#9660;</span>
+				</div>
+				<div class="faq-answer" *ngIf="openedFaqIndex === i && faq.answer">
+					{{ faq.answer }}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

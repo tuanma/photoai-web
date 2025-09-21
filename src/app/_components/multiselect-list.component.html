@@ -1,0 +1,17 @@
+<div class="transaction-list" scrollTracker (scrollingFinished)="onScrollingFinished()">
+	<div *ngFor="let transList of listTransaction | keyvalue: sortByDateTimeDESC; index as i;">
+		<div class="transaction-date">{{transList.key}}</div>
+		<div *ngFor="let trans of listTransaction[transList.key] | keyvalue: sortByDateTimeASC; index as j;">
+			<div class="transaction-item">
+				<i class="fa fa-check-circle"></i> <span class="description">{{listTransaction[transList.key][trans.key].name}}</span>
+				<span class="amount"
+					[ngClass]="{'positive': listTransaction[transList.key][trans.key].type === 'INCOMING', 'negative' : listTransaction[transList.key][trans.key].type === 'OUTGOING' }">
+					<span *ngIf="listTransaction[transList.key][trans.key].type === 'INCOMING'">+</span> <span
+					*ngIf="listTransaction[transList.key][trans.key].type === 'OUTGOING'">-</span> €
+					{{getAmount1(listTransaction[transList.key][trans.key].amount) | ngxNumberWithCommas}}<span
+					class="small-font-size">.{{getAmount2(listTransaction[transList.key][trans.key].amount)}}</span>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

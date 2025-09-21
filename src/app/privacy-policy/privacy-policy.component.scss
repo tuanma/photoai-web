@@ -1,0 +1,319 @@
+body {
+	font-family: Arial, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+	background-color: #f5f5f5;
+}
+
+.container {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	text-align: center;
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+	position: absolute;
+	top: 20px;
+	left: 10px;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.back-button img {
+	width: 20px;
+	height: 20px;
+}
+
+.account-info {
+	margin-bottom: 40px;
+	/* Adjust to make space for the back button */
+}
+
+.account-info h1 {
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.account-info p {
+	color: gray;
+	margin: 0;
+	font-size: 14px;
+}
+
+.balance {
+	font-size: 42px;
+	font-weight: bold;
+	color: #000;
+}
+
+.actions {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+.add-funds {
+  background-color: #3E56B2; /* Màu xanh */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.action-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action-button {
+    background-color: #77a95f;
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px; /* Khoảng cách giữa nút và chữ */
+	margin-top: 40px;
+    font-size: 24px; /* Kích thước icon */
+}
+
+.action-button i {
+    color: white; /* Màu của icon */
+}
+
+.action-button:hover {
+    background-color: #45a049;
+}
+
+.action-button-container p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+.loading {
+	width: 40px;
+	height: 40px;
+	border: 4px solid rgba(0, 0, 0, 0.1);
+	border-top: 4px solid gray;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+	margin-top: 30px;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.transaction-list {
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.transaction-item i {
+    color: #4CAF50;
+    font-size: 24px;
+}
+
+.description {
+    flex: 1;
+    margin-left: 10px;
+    color: #333;
+	text-align: left;
+}
+
+.amount {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.amount.positive {
+    color: #4CAF50;
+}
+
+.positive-add {
+	position: absolute;
+    right: 0;
+    margin-right: 30px;
+    margin-top: 50px;
+}
+
+.amount.negative {
+    color: #f44336;
+}
+
+.privacy-policy-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(62, 86, 178, 0.08);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.privacy-policy-content {
+  line-height: 1.6;
+  color: #333;
+}
+
+.privacy-policy-title {
+  color: #3E56B2;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.privacy-policy-date {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 32px;
+}
+
+.privacy-policy-intro {
+  margin-bottom: 40px;
+  padding: 24px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #3E56B2;
+}
+
+.privacy-policy-intro p {
+  margin-bottom: 16px;
+}
+
+.privacy-section {
+  margin-bottom: 40px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.section-title {
+  color: #3E56B2;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.section-content {
+  margin-top: 20px;
+}
+
+.subsection-title {
+  color: #495057;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 24px 0 12px 0;
+}
+
+.data-types {
+  margin: 20px 0;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.data-type-title {
+  color: #3E56B2;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.data-list {
+  margin: 12px 0;
+  padding-left: 20px;
+}
+
+.data-list li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.privacy-section p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.privacy-section a {
+  color: #3E56B2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.privacy-section a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .privacy-policy-container {
+    margin: 20px;
+    padding: 24px 16px;
+  }
+  
+  .privacy-policy-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .privacy-section {
+    padding: 16px;
+  }
+}
+
+.privacy-policy-container, .privacy-policy-container * {
+  text-align: left !important;
+}
+

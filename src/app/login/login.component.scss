@@ -1,0 +1,57 @@
+.card-header{
+	background:none;
+	border:none;
+}
+
+.box-lang{
+	margin-left: -15px;
+    margin-top: 5px;
+}
+
+.login-resources {
+	float: left;
+	width: 100%;
+	text-align: center;
+	margin-top: 27px;
+}
+.login-resources h4 {
+	color: #000000;
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 30px;
+}
+.login-resources ul {
+	float: left;
+	width: 100%;
+	list-style: none;
+}
+.login-resources ul li {
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+}
+.login-resources ul li a {
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 600;
+	float: left;
+	width: 100%;
+	padding: 9px 0;
+}
+.login-resources ul li a i {
+	margin-right: 15px;
+}
+
+
+.fb {
+	background-color: #3b5998;
+}
+.tw {
+	background-color: #4099ff;
+}
+.tw .fa-twitter {
+	color: #fff;
+}
+.gg {
+	background-color: RED;
+}
