@@ -10,6 +10,7 @@ body {
 	line-height: 1.6;
 	color: #333;
 	background-color: #ffffff;
+	padding-top: 80px; // Account for fixed header
 }
 
 .container {
@@ -20,12 +21,14 @@ body {
 
 // Hero Section
 .hero-section {
-	background: linear-gradient(135deg, #3E56B2 0%, #764ba2 100%);
+	background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), 
+	            linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 	color: white;
 	padding: 80px 0;
 	min-height: 100vh;
 	display: flex;
 	align-items: center;
+	position: relative;
 }
 
 .hero-container {

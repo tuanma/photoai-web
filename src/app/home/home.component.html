@@ -2,29 +2,29 @@
 <section class="hero-section">
 	<div class="hero-container">
 		<div class="hero-content">
-			<h1 class="hero-title">Scan QR Codes Instantly</h1>
-			<p class="hero-subtitle">The fastest and most reliable QR code scanner for your mobile device. Scan any QR code with just one tap.</p>
+			<h1 class="hero-title">Create Stunning AI Photos</h1>
+			<p class="hero-subtitle">Transform your photos with AI-powered editing tools. Remove backgrounds, enhance quality, and create professional images in seconds.</p>
 			<div class="hero-buttons">
-				<a class="app-store-btn" href="https://apps.apple.com/us/app/qr-code-reader-barcode-qr/id6747792526" target="_blank" rel="noopener">
-					<span class="apple-logo" aria-hidden="true"></span>
-					<span class="app-store-text">
-						<span class="small-text">Download on the</span>
-						<span class="big-text">App Store</span>
-					</span>
-				</a>
-				<button class="btn-secondary" (click)="tryOnline()">Try Online</button>
+				<button class="btn-primary" (click)="startEditing()">Start Editing</button>
+				<button class="btn-secondary" (click)="learnMore()">Learn More</button>
 			</div>
 		</div>
 		<div class="hero-image">
-			<div class="phone-mockup">
-				<div class="screen">
-					<div class="qr-scanner-interface">
-						<div class="scanner-frame">
-							<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-								<img src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&size=196x196" alt="QR Code" style="width: 196px; height: 196px; border-radius: 20px; background: #fff;" />
-							</div>
+			<div class="photo-editor-mockup">
+				<div class="editor-interface">
+					<div class="before-after-container">
+						<div class="before-image">
+							<img src="assets/images/before-photo.jpg" alt="Before" class="editor-photo">
+							<div class="before-label">Before</div>
 						</div>
-						<div class="scan-line"></div>
+						<div class="after-image">
+							<img src="assets/images/after-photo.jpg" alt="After" class="editor-photo">
+							<div class="after-label">After</div>
+						</div>
+					</div>
+					<div class="ai-processing-indicator">
+						<div class="processing-bar"></div>
+						<span class="processing-text">AI Processing...</span>
 					</div>
 				</div>
 			</div>
@@ -32,165 +32,266 @@
 	</div>
 </section>
 
-<!-- Features Section -->
-<section class="scanqr-image-section">
+<!-- AI Tools Section -->
+<section class="ai-tools-section">
 	<div class="container">
-		<h2 class="section-title">Scan QR code from image</h2>
-		<p class="section-desc">Simply upload an image or take a photo of a QR code to reveal its content</p>
-		<div class="scanqr-image-grid">
-			<!-- Select QR Image -->
-			<div class="scanqr-upload-card">
-				<div class="scanqr-upload-header">
-					<i class="fas fa-check-circle"></i> Select QR Image
+		<h2 class="section-title">AI-Powered Photo Editing Tools</h2>
+		<p class="section-desc">Professional photo editing made simple with advanced AI technology</p>
+		<div class="ai-tools-grid">
+			<!-- Background Removal -->
+			<div class="ai-tool-card" (click)="navigateToTool('background-removal')">
+				<div class="tool-icon">
+					<i class="fas fa-cut"></i>
 				</div>
-				<div class="scanqr-upload-drop" (drop)="onDrop($event)" (dragover)="onDragOver($event)" (click)="fileInput.click()">
-					<input type="file" accept="image/*" (change)="onFileChange($event)" hidden #fileInput>
-					<img src="assets/images/upload.webp" alt="Upload" class="scanqr-upload-icon">
-					<div class="scanqr-upload-title"><b>Drag & Drop or Browse</b></div>
-					<div class="scanqr-upload-desc">All image types allowed.</div>
-				</div>
-				<div class="scanqr-upload-footer">
-					<small>
-						<i class="fas fa-lock"></i> Built with the most used and <a href="https://github.com/zxing-js/library" target="_blank">secure Google's Zxing library</a>.
-					</small>
+				<h3>Background Removal</h3>
+				<p>Remove backgrounds instantly with AI precision</p>
+				<div class="tool-features">
+					<span class="feature-tag">One-click</span>
+					<span class="feature-tag">High Quality</span>
 				</div>
 			</div>
-			<!-- Scanned Data -->
-			<div class="scanqr-result-card">
-				<div class="scanqr-result-header">
-					<i class="fas fa-qrcode"></i> Scanned Data
+
+			<!-- Photo Upscaling -->
+			<div class="ai-tool-card" (click)="navigateToTool('upscaling')">
+				<div class="tool-icon">
+					<i class="fas fa-expand-arrows-alt"></i>
 				</div>
-				<textarea class="scanqr-result-text" readonly [value]="scannedData || 'Scan a QR code to view the results here.'"></textarea>
-				<button class="scanqr-copy-btn" (click)="copyResults()">
-					<i class="fas fa-paperclip"></i> Copy Results
-				</button>
+				<h3>Photo Upscaling</h3>
+				<p>Enhance image resolution up to 4x with AI</p>
+				<div class="tool-features">
+					<span class="feature-tag">4x Resolution</span>
+					<span class="feature-tag">Smart AI</span>
+				</div>
+			</div>
+
+			<!-- AI Photo Generation -->
+			<div class="ai-tool-card" (click)="navigateToTool('ai-generation')">
+				<div class="tool-icon">
+					<i class="fas fa-magic"></i>
+				</div>
+				<h3>AI Photo Generation</h3>
+				<p>Create stunning photos from text descriptions</p>
+				<div class="tool-features">
+					<span class="feature-tag">Text to Image</span>
+					<span class="feature-tag">Creative</span>
+				</div>
+			</div>
+
+			<!-- Photo Enhancement -->
+			<div class="ai-tool-card" (click)="navigateToTool('enhancement')">
+				<div class="tool-icon">
+					<i class="fas fa-adjust"></i>
+				</div>
+				<h3>Photo Enhancement</h3>
+				<p>Automatically improve lighting, colors, and clarity</p>
+				<div class="tool-features">
+					<span class="feature-tag">Auto Fix</span>
+					<span class="feature-tag">Professional</span>
+				</div>
+			</div>
+
+			<!-- Object Removal -->
+			<div class="ai-tool-card" (click)="navigateToTool('object-removal')">
+				<div class="tool-icon">
+					<i class="fas fa-eraser"></i>
+				</div>
+				<h3>Object Removal</h3>
+				<p>Remove unwanted objects from photos seamlessly</p>
+				<div class="tool-features">
+					<span class="feature-tag">Smart Remove</span>
+					<span class="feature-tag">Natural</span>
+				</div>
+			</div>
+
+			<!-- Face Swap -->
+			<div class="ai-tool-card" (click)="navigateToTool('face-swap')">
+				<div class="tool-icon">
+					<i class="fas fa-user-friends"></i>
+				</div>
+				<h3>Face Swap</h3>
+				<p>Swap faces between photos with realistic results</p>
+				<div class="tool-features">
+					<span class="feature-tag">Realistic</span>
+					<span class="feature-tag">Fun</span>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- Webcam QR code scanner Section -->
-<section class="webcam-qr-section">
+<!-- Pricing Section -->
+<section class="pricing-section">
 	<div class="container">
-		<h2 class="section-title">Webcam QR code scanner</h2>
-		<p class="section-desc">Click "Open camera" &amp; point the QR toward it</p>
-		<div class="webcam-qr-grid">
-			<!-- Webcam Card -->
-			<div class="webcam-card">
-				<div class="webcam-header">
-					<i class="fas fa-video"></i> Webcam
-				</div>
-				<div class="webcam-video-area">
-					<div class="webcam-placeholder">
-						<span class="webcam-info"><i class="fas fa-info-circle"></i> Make sure to allow camera access!</span>
+		<h2 class="section-title">Choose Your Plan</h2>
+		<p class="section-desc">Select the perfect plan for your photo editing needs</p>
+		<div class="pricing-grid">
+			<!-- Free Plan -->
+			<div class="pricing-card">
+				<div class="plan-header">
+					<h3>Free</h3>
+					<div class="plan-price">
+						<span class="currency">$</span>
+						<span class="amount">0</span>
+						<span class="period">/month</span>
 					</div>
 				</div>
-				<button class="webcam-open-btn" disabled>
-					<i class="fas fa-camera"></i> Open Camera
-				</button>
-			</div>
-			<!-- Scanned Data Card -->
-			<div class="webcam-result-card">
-				<div class="webcam-result-header">
-					<i class="fas fa-qrcode"></i> Scanned Data
+				<div class="plan-features">
+					<ul>
+						<li><i class="fas fa-check"></i> 5 AI edits per month</li>
+						<li><i class="fas fa-check"></i> Basic background removal</li>
+						<li><i class="fas fa-check"></i> Standard quality</li>
+						<li><i class="fas fa-times"></i> No batch processing</li>
+					</ul>
 				</div>
-				<textarea class="webcam-result-text" readonly>Scan a QR code to view the results here.</textarea>
-				<button class="webcam-copy-btn" disabled>
-					<i class="fas fa-paperclip"></i> Copy Results
-				</button>
+				<button class="plan-btn">Get Started</button>
+			</div>
+
+			<!-- Pro Plan -->
+			<div class="pricing-card featured">
+				<div class="plan-badge">Most Popular</div>
+				<div class="plan-header">
+					<h3>Pro</h3>
+					<div class="plan-price">
+						<span class="currency">$</span>
+						<span class="amount">19</span>
+						<span class="period">/month</span>
+					</div>
+				</div>
+				<div class="plan-features">
+					<ul>
+						<li><i class="fas fa-check"></i> Unlimited AI edits</li>
+						<li><i class="fas fa-check"></i> All editing tools</li>
+						<li><i class="fas fa-check"></i> High quality output</li>
+						<li><i class="fas fa-check"></i> Batch processing</li>
+						<li><i class="fas fa-check"></i> Priority support</li>
+					</ul>
+				</div>
+				<button class="plan-btn primary">Choose Pro</button>
+			</div>
+
+			<!-- Enterprise Plan -->
+			<div class="pricing-card">
+				<div class="plan-header">
+					<h3>Enterprise</h3>
+					<div class="plan-price">
+						<span class="currency">$</span>
+						<span class="amount">99</span>
+						<span class="period">/month</span>
+					</div>
+				</div>
+				<div class="plan-features">
+					<ul>
+						<li><i class="fas fa-check"></i> Everything in Pro</li>
+						<li><i class="fas fa-check"></i> API access</li>
+						<li><i class="fas fa-check"></i> Custom integrations</li>
+						<li><i class="fas fa-check"></i> Dedicated support</li>
+						<li><i class="fas fa-check"></i> Team management</li>
+					</ul>
+				</div>
+				<button class="plan-btn">Contact Sales</button>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- How It Works Section -->
+<!-- How PhotoAI Works Section -->
 <section class="how-it-works-section">
 	<div class="container">
-		<h2 class="section-title">How It Works</h2>
+		<h2 class="section-title">How PhotoAI Works</h2>
 		<div class="steps-grid">
 			<div class="step">
 				<div class="step-number">1</div>
-				<h3>Open App</h3>
-				<p>Launch Scan QR Reader on your device</p>
+				<h3>Upload Photo</h3>
+				<p>Upload your image or drag & drop it into our editor</p>
 			</div>
 			<div class="step">
 				<div class="step-number">2</div>
-				<h3>Point Camera</h3>
-				<p>Aim at any QR code</p>
+				<h3>AI Processing</h3>
+				<p>Our advanced AI analyzes and processes your image</p>
 			</div>
 			<div class="step">
 				<div class="step-number">3</div>
-				<h3>Get Results</h3>
-				<p>Instantly see the content</p>
+				<h3>Download Result</h3>
+				<p>Get your professionally edited photo in seconds</p>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- Download Section -->
-<section class="download-section">
+<!-- CTA Section -->
+<section class="cta-section">
 	<div class="container">
-		<div class="download-content">
-			<h2>Ready to Start Scanning?</h2>
-			<p>Download Scan QR Reader now and experience the fastest QR code scanning</p>
-			<div class="download-buttons">
-				<a class="app-store-btn" href="https://apps.apple.com/us/app/qr-code-reader-barcode-qr/id6747792526" target="_blank" rel="noopener">
-					<span class="apple-logo" aria-hidden="true"></span>
-					<span class="app-store-text">
-						<span class="small-text">Download on the</span>
-						<span class="big-text">App Store</span>
-					</span>
-				</a>
-				<a class="google-play-btn" href="#" target="_blank" rel="noopener">
-					<span class="google-play-logo" aria-hidden="true"></span>
-					<span class="google-play-text">
-						<span class="small-text">Get it on</span>
-						<span class="big-text">Google Play</span>
-						<span class="coming-soon">Coming soon</span>
-					</span>
-				</a>
+		<div class="cta-content">
+			<h2>Ready to Transform Your Photos?</h2>
+			<p>Join thousands of users who are already creating stunning images with PhotoAI</p>
+			<div class="cta-buttons">
+				<button class="btn-primary btn-large" (click)="startEditing()">Start Editing Now</button>
+				<button class="btn-secondary btn-large" (click)="viewExamples()">View Examples</button>
+			</div>
+			<div class="cta-stats">
+				<div class="stat-item">
+					<span class="stat-number">1M+</span>
+					<span class="stat-label">Photos Edited</span>
+				</div>
+				<div class="stat-item">
+					<span class="stat-number">50K+</span>
+					<span class="stat-label">Happy Users</span>
+				</div>
+				<div class="stat-item">
+					<span class="stat-number">99.9%</span>
+					<span class="stat-label">Uptime</span>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- QR code types Section -->
-<section class="qr-types-section">
-	<div class="container qr-types-container">
-		<div class="qr-types-table">
-			<h2 class="qr-types-title">QR code types</h2>
-			<table>
-				<thead>
-					<tr>
-						<th>Type</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr><td class="qr-type-url">URL</td><td>link to any webpage</td></tr>
-					<tr><td class="qr-type-text">Text</td><td>represents plain text</td></tr>
-					<tr><td class="qr-type-location">Location</td><td>for a geographical position (Google maps)</td></tr>
-					<tr><td class="qr-type-wifi">WiFi</td><td>connects to a wireless network</td></tr>
-					<tr><td class="qr-type-vcard">vCard</td><td>visiting card (<a href="#" class="qr-type-link">digital business card</a>)</td></tr>
-					<tr><td class="qr-type-sms">SMS</td><td>for sending SMS on a smartphone</td></tr>
-					<tr><td class="qr-type-call">Call</td><td>starts a phone call</td></tr>
-					<tr><td class="qr-type-event">Event</td><td>triggers calendar entry for any event</td></tr>
-					<tr><td class="qr-type-mail">Mail</td><td>initiates email draft to a recipient</td></tr>
-				</tbody>
-			</table>
-		</div>
-		<div class="qr-types-examples">
-			<h3 class="qr-types-examples-title">QR CODE<br/>TYPES, USES & EXAMPLES</h3>
-			<div class="qr-types-examples-desc">There are no types of QR codes. A QR code contains a character string as payload. The QR code is always just a QR code, i.e. a coded representation of a chain of bytes.</div>
-			<div class="qr-types-examples-grid">
-				<div class="qr-example qr-example-yellow"><b>TEXT:</b> Hello! this is plain text example.</div>
-				<div class="qr-example qr-example-yellow"><b>LOCATION:</b> geo:&lt;lat&gt;,&lt;long&gt;,&lt;alt&gt;<br/><span class="qr-example-note">example: geo:40.71872,-73.98905,100</span></div>
-				<div class="qr-example qr-example-white"><b>vCard:</b><br/>BEGIN:VCARD<br/>VERSION:2.1<br/>N:Franz Testhuber<br/>FN:Testhuber;Franz<br/>TITLE:Professor<br/>TEL;CELL:+1 555 1234 56<br/>EMAIL:HOME;INTERNET:ich&#64;du.da<br/>URL:https://exmaple.com/zeuq.html<br/>ADR:;irgendwo;weg;Berlin;;12345;Germany<br/>END:VCARD</div>
-				<div class="qr-example qr-example-yellow"><b>SMS:</b> SMSTO:&lt;nummer&gt;:&lt;text&gt;<br/><span class="qr-example-note">example: SMSTO:4915112345678:Hurga</span></div>
-				<div class="qr-example qr-example-blue"><b>EVENTS:</b> BEGIN:VEVENT<br/>SUMMARY:Biergarten<br/>DTSTART:20190105T220000Z<br/>DTEND:20190105T110000Z<br/>END:VEVENT</div>
-				<div class="qr-example qr-example-white"><b>E-MAIL:</b> MATMSG:TO:ich&#64;du.da;<br/>SUB:Betreff;<br/>BODY:Hallo da draussen;;</div>
-				<div class="qr-example qr-example-yellow"><b>WIFI ACCESS:</b> WIFI:S:tenda;T:WPA;P:dsh&#64;sd;;<br/><span class="qr-example-note">Network Name&nbsp;&nbsp;Network Type&nbsp;&nbsp;WiFi Password</span></div>
-				<div class="qr-example qr-example-blue"><b>CALL:</b> tel:&lt;nummer&gt;</div>
+<!-- Features Showcase Section -->
+<section class="features-showcase-section">
+	<div class="container">
+		<h2 class="section-title">Why Choose PhotoAI?</h2>
+		<div class="features-grid">
+			<div class="feature-item">
+				<div class="feature-icon">
+					<i class="fas fa-bolt"></i>
+				</div>
+				<h3>Lightning Fast</h3>
+				<p>Process your images in seconds, not minutes. Our AI technology delivers results instantly.</p>
+			</div>
+			<div class="feature-item">
+				<div class="feature-icon">
+					<i class="fas fa-shield-alt"></i>
+				</div>
+				<h3>Privacy First</h3>
+				<p>Your images are processed securely and never stored on our servers. Complete privacy guaranteed.</p>
+			</div>
+			<div class="feature-item">
+				<div class="feature-icon">
+					<i class="fas fa-star"></i>
+				</div>
+				<h3>Professional Quality</h3>
+				<p>Get studio-quality results with our advanced AI algorithms trained on millions of images.</p>
+			</div>
+			<div class="feature-item">
+				<div class="feature-icon">
+					<i class="fas fa-mobile-alt"></i>
+				</div>
+				<h3>Works Everywhere</h3>
+				<p>Access PhotoAI from any device - desktop, tablet, or mobile. No software installation required.</p>
+			</div>
+			<div class="feature-item">
+				<div class="feature-icon">
+					<i class="fas fa-users"></i>
+				</div>
+				<h3>Trusted by Millions</h3>
+				<p>Join millions of users worldwide who trust PhotoAI for their photo editing needs.</p>
+			</div>
+			<div class="feature-item">
+				<div class="feature-icon">
+					<i class="fas fa-headset"></i>
+				</div>
+				<h3>24/7 Support</h3>
+				<p>Get help whenever you need it with our dedicated customer support team.</p>
 			</div>
 		</div>
 	</div>
@@ -199,7 +300,7 @@
 <!-- FAQ Section -->
 <section class="faq-section">
 	<div class="container">
-		<h2 class="faq-title">Scan QR code FAQ's</h2>
+		<h2 class="faq-title">PhotoAI FAQ's</h2>
 		<div class="faq-list">
 			<div *ngFor="let faq of faqs; let i = index" class="faq-item" [class.active]="openedFaqIndex === i">
 				<div class="faq-question" (click)="toggleFaq(i)">

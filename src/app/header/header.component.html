@@ -2,16 +2,20 @@
 	<div class="header-container">
 		<div class="logo">
 			<a routerLink="/home">
-				<img src="assets/images/logo_scanqr.png" alt="ScanQR Logo" class="logo-image">
-				<span class="logo-text">Scan QR Reader</span>
+				<img src="assets/images/photoai-logo.png" alt="PhotoAI Logo" class="logo-image">
+				<span class="logo-text">PhotoAI</span>
 			</a>
 		</div>
 		<nav class="nav-menu">
-			<a routerLink="/home" routerLinkActive="active">Home</a>
-			<a routerLink="/about" routerLinkActive="active">About</a>
-			<a routerLink="/contact" routerLinkActive="active">Contact</a>
-			<a routerLink="/qr-code-generator" routerLinkActive="active">QR Code Generator</a>
-			<button class="download-app-btn" (click)="downloadApp()"><i class="fas fa-download"></i> Download App</button>
+			<a routerLink="/pricing" routerLinkActive="active">Pricing</a>
+			<a routerLink="/faq" routerLinkActive="active">FAQ</a>
+			<a routerLink="/login" routerLinkActive="active">Log in</a>
+			<a routerLink="/billing" routerLinkActive="active">Billing</a>
+			<a routerLink="/gallery" routerLinkActive="active">Gallery</a>
+			<a routerLink="/ideas" routerLinkActive="active">Ideas</a>
+			<button class="cta-button" (click)="takePhotos()">
+				Take photos like these →
+			</button>
 		</nav>
 	</div>
 </header>

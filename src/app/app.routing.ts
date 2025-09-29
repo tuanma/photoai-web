@@ -71,6 +71,34 @@ export const routes: Routes = [
 			breadcrumb: 'QR Code Generator'
 		}
 	},
+	{
+		path: 'tools',
+		loadChildren: () => import('./tools/tools.routes').then(m => m.routes)
+	},
+	{
+		path: 'editor',
+		loadComponent: () => import('./editor/editor.component').then(m => m.EditorComponent)
+	},
+	{
+		path: 'gallery',
+		loadComponent: () => import('./gallery/gallery.component').then(m => m.GalleryComponent)
+	},
+	{
+		path: 'pricing',
+		loadComponent: () => import('./pricing/pricing.component').then(m => m.PricingComponent)
+	},
+	{
+		path: 'faq',
+		loadComponent: () => import('./faq/faq.component').then(m => m.FaqComponent)
+	},
+	{
+		path: 'billing',
+		loadComponent: () => import('./billing/billing.component').then(m => m.BillingComponent)
+	},
+	{
+		path: 'ideas',
+		loadComponent: () => import('./ideas/ideas.component').then(m => m.IdeasComponent)
+	},
 	// HTML routes
 	{
 		path: 'home.html',

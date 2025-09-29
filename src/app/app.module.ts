@@ -24,7 +24,7 @@ import { HeaderComponent } from './header';
 import { FooterComponent } from './footer';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
-import { ContactComponent } from './contact';
+// import { ContactComponent } from './contact'; // Now standalone
 import { MultiselectListComponent } from './_components';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
@@ -49,7 +49,7 @@ const components = [
 	HomeComponent,
 	NavMenuComponent,
 	AboutComponent,
-	ContactComponent,
+	// ContactComponent, // Now standalone
 	MultiselectListComponent,
 	LoginComponent,
 	PrivacyPolicyComponent,

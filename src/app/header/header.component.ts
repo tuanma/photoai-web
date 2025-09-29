@@ -30,6 +30,10 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 		window.open('https://apps.apple.com/us/app/qr-code-reader-barcode-qr/id6747792526', '_blank');
 	}
 
+	takePhotos() {
+		this.router.navigate(['/tools']);
+	}
+
 	ngOnDestroy() {
 	}
 

@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BrowserQRCodeReader } from '@zxing/browser';
 
 export interface FaqItem {
 	question: string;
@@ -14,22 +13,39 @@ export interface FaqItem {
 })
 export class HomeComponent implements OnInit {
 
-	scannedData: string = '';
-	@ViewChild('fileInput') fileInput: ElementRef<HTMLInputElement>;
-
 	faqs: FaqItem[] = [
 		{
-			question: 'How to scan a QR code?',
-			answer: 'You can scan a QR code online using the web app. Alternatively, you can use your phone camera. Most of the phones have built-in camera scanning capability. You need to open your phone camera and point it towards the code. Otherwise, download the QR scanning app.'
+			question: 'What is PhotoAI?',
+			answer: 'PhotoAI is an advanced AI-powered photo editing platform that helps you create stunning images with professional quality. Our tools include background removal, photo upscaling, AI generation, and much more.'
 		},
-		{ question: 'How to scan QR codes on iPhone?', answer: '' },
-		{ question: 'How to scan a QR code on Android?', answer: '' },
-		{ question: 'Can you scan a QR code without an app?', answer: '' },
-		{ question: 'Is there an app to scan QR codes?', answer: '' },
-		{ question: 'Can you scan a QR code from a picture?', answer: '' },
-		{ question: 'How do I scan a QR code with my laptop?', answer: '' },
-		{ question: 'How to scan a QR code from a screenshot?', answer: '' },
-		{ question: 'How to Scan WiFi QR code on Laptop?', answer: '' },
+		{ 
+			question: 'How does AI photo editing work?', 
+			answer: 'Our AI algorithms analyze your images and apply advanced processing techniques to enhance quality, remove backgrounds, upscale resolution, and create new content based on your specifications.' 
+		},
+		{ 
+			question: 'Is my data secure?', 
+			answer: 'Yes, we prioritize your privacy. Your images are processed securely and never stored on our servers. We use industry-standard encryption and follow strict data protection protocols.' 
+		},
+		{ 
+			question: 'What file formats are supported?', 
+			answer: 'We support all major image formats including JPEG, PNG, WebP, and TIFF. You can upload images up to 50MB in size.' 
+		},
+		{ 
+			question: 'How long does processing take?', 
+			answer: 'Most edits are completed within 10-30 seconds, depending on the complexity and size of your image. Our AI is optimized for speed while maintaining quality.' 
+		},
+		{ 
+			question: 'Can I use PhotoAI for commercial purposes?', 
+			answer: 'Yes, with our Pro and Enterprise plans, you can use PhotoAI for commercial projects. Check our pricing page for details on commercial usage rights.' 
+		},
+		{ 
+			question: 'Do you offer batch processing?', 
+			answer: 'Yes, our Pro and Enterprise plans include batch processing capabilities, allowing you to edit multiple images simultaneously.' 
+		},
+		{ 
+			question: 'What if I\'m not satisfied with the results?', 
+			answer: 'We offer a 30-day money-back guarantee. If you\'re not satisfied with our service, contact our support team for a full refund.' 
+		},
 	];
 
 	openedFaqIndex: number | null = null;
@@ -43,79 +59,23 @@ export class HomeComponent implements OnInit {
 	}
 
 	private initializeAnimations() {
-		console.log('Scan QR Reader Home Page Loaded');
+		console.log('PhotoAI Home Page Loaded');
 	}
 
-	downloadApp() {
-		window.open('https://apps.apple.com/us/app/qr-code-reader-barcode-qr/id6747792526', '_blank');
+	startEditing() {
+		this.router.navigate(['/editor']);
 	}
 
-	tryOnline() {
-		this.router.navigate(['/qr-code-generator']);
+	learnMore() {
+		this.router.navigate(['/about']);
 	}
 
-	downloadFromAppStore() {
-		window.open('https://apps.apple.com/us/app/qr-code-reader-barcode-qr/id6747792526', '_blank');
+	navigateToTool(tool: string) {
+		this.router.navigate(['/tools', tool]);
 	}
 
-	downloadFromGooglePlay() {
-		this.router.navigate(['/home']);
-	}
-
-	// --- QR IMAGE UPLOAD UI ONLY ---
-	async onFileChange(event: any) {
-		const file = event.target.files[0];
-		if (file) {
-			const reader = new FileReader();
-			reader.onload = async (e: any) => {
-				const imageUrl = e.target.result;
-				const img = new Image();
-				img.src = imageUrl;
-				img.onload = async () => {
-					try {
-						const codeReader = new BrowserQRCodeReader();
-						const result = await codeReader.decodeFromImageElement(img);
-						this.scannedData = result.getText();
-					} catch (err) {
-						this.scannedData = 'Không nhận diện được QR code!';
-					}
-				};
-			};
-			reader.readAsDataURL(file);
-		}
-	}
-
-	async onDrop(event: DragEvent) {
-		event.preventDefault();
-		if (event.dataTransfer && event.dataTransfer.files.length > 0) {
-			const file = event.dataTransfer.files[0];
-			const reader = new FileReader();
-			reader.onload = async (e: any) => {
-				const imageUrl = e.target.result;
-				const img = new Image();
-				img.src = imageUrl;
-				img.onload = async () => {
-					try {
-						const codeReader = new BrowserQRCodeReader();
-						const result = await codeReader.decodeFromImageElement(img);
-						this.scannedData = result.getText();
-					} catch (err) {
-						this.scannedData = 'Không nhận diện được QR code!';
-					}
-				};
-			};
-			reader.readAsDataURL(file);
-		}
-	}
-
-	onDragOver(event: DragEvent) {
-		event.preventDefault();
-	}
-
-	copyResults() {
-		if (this.scannedData) {
-			navigator.clipboard.writeText(this.scannedData);
-		}
+	viewExamples() {
+		this.router.navigate(['/gallery']);
 	}
 
 	toggleFaq(idx: number) {
