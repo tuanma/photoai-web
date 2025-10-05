@@ -1,63 +1,216 @@
-<div class="app-body">
-	<main class="c-app flex-row align-items-center" style="margin: 0 auto;">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-12">
-					<div class="card-group" style="min-width: 420px">
-						<div class="card p-4">
-							<div class="card-header text-center">
-								<img class="navbar-brand-full" src="assets/images/Logo.png" width="250px" alt="Translator - MTech">
-								<div class="row">
-									<div class="col-12">
-										<h1>Login</h1>
-									</div>
-								</div>
-								<div class="row">
-									<p class="col-12 text-muted">Login to the admin system</p>
-								</div>
-							</div>
-							<div class="card-body">
-								<!--start-showLoading end-->
-								<div class="col-12 text-center" *ngIf="loading">
-									<div class="spinner-border text-primary" role="status">
-										<span class="sr-only">Loading...</span>
-									</div>
-								</div>
-								<!--process-showLoading end-->
-								<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-									<alert></alert>
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="icon-user"></i></span>
-										</div>
-										<input type="text" formControlName="userName" placeholder="Email or Phone" autocomplete="userName" class="form-control" [ngClass]="{ 'is-invalid': f.userName.errors }" />
-										<div *ngIf="f.userName.errors" class="invalid-feedback">
-											<div *ngIf="f.userName.errors.required">Username is required</div>
-										</div>
-									</div>
-									<div class="input-group mb-4">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="icon-lock"></i></span>
-										</div>
-										<input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': f.password.errors }" />
-										<div *ngIf="f.password.errors" class="invalid-feedback">
-											<div *ngIf="f.password.errors.required">Password is required</div>
-										</div>
-									</div>
-									<div class="row justify-content-center">
-										<div class="col-6 text-right">
-											<a routerLink="/forgot-password" class="btn btn-link px-0">Forgot password?</a>
-										</div>
-										<div class="col-6">
-											<button type="submit" class="btn btn-primary px-4">LogIn</button>
-										</div>
-									</div>
-								</form>
-							</div>
+<div class="login-container">
+	<div class="login-wrapper">
+		<!-- Left Promotional Section -->
+		<div class="promotional-section">
+			<div class="promotional-content">
+				<!-- Main Headline -->
+				<div class="headline">
+					<h1>Get your headshots in <span class="highlight">minutes</span>, not days</h1>
+				</div>
+				
+				<!-- Headshot Grid -->
+				<div class="headshot-grid">
+					<div class="headshot-item">
+						<img src="assets/images/headshot1.jpg" alt="Professional headshot" />
+					</div>
+					<div class="headshot-item">
+						<img src="assets/images/headshot2.jpg" alt="Professional headshot" />
+					</div>
+					<div class="headshot-item">
+						<img src="assets/images/headshot1.jpg" alt="Professional headshot" />
+					</div>
+					<div class="headshot-item">
+						<img src="assets/images/headshot2.jpg" alt="Professional headshot" />
+					</div>
+					<div class="headshot-item">
+						<img src="assets/images/headshot1.jpg" alt="Professional headshot" />
+					</div>
+					<div class="headshot-item">
+						<img src="assets/images/headshot2.jpg" alt="Professional headshot" />
+					</div>
+				</div>
+				
+				<!-- Trustpilot Rating -->
+				<div class="trustpilot-rating">
+					<div class="trustpilot-logo">
+						<span class="trustpilot-text">Trustpilot</span>
+						<div class="stars">
+							<span class="star">★</span>
+							<span class="star">★</span>
+							<span class="star">★</span>
+							<span class="star">★</span>
+							<span class="star">★</span>
 						</div>
+					</div>
+				</div>
+				
+				<!-- Testimonial -->
+				<div class="testimonial">
+					<blockquote>
+						"These are GORGEOUS! I love how the AI figured out my best facial features and showcased them professionally in these 100 headshots. I am incredibly happy with this finished products. I am telling all of my friends."
+					</blockquote>
+					<div class="testimonial-author">
+						<img src="assets/images/annmarie.jpg" alt="Annmarie" class="author-avatar" />
+						<span class="author-name">Annmarie</span>
+					</div>
+				</div>
+				
+				<!-- Trusted by companies -->
+				<div class="trusted-by">
+					<p class="trusted-by-text">Trusted by teams at</p>
+					<div class="company-logos">
+						<div class="company-logo">REDFIN</div>
+						<div class="company-logo">Trinity College Dublin</div>
+						<div class="company-logo">NEW YORK UNIVERSITY</div>
+						<div class="company-logo">ASU</div>
+						<div class="company-logo">UC Berkeley</div>
+						<div class="company-logo">Microsoft</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</main>
+		
+		<!-- Right Login Form Section -->
+		<div class="login-form-section">
+			<div class="login-form-container">
+				<!-- Header -->
+				<div class="form-header">
+					<div class="brand-logo">
+						<span class="flame-icon">🔥</span>
+						<span class="brand-name">PhotoAI.ai</span>
+					</div>
+				</div>
+				
+				<!-- Social Login Buttons -->
+				<div class="social-login">
+					<div id="g_id_onload"
+					     data-client_id="99119992057-m2d22glpdjimk6bf2qr7ffop48mqd4g8.apps.googleusercontent.com"
+					     data-context="signin"
+					     data-ux_mode="popup"
+					     data-callback="handleCredentialResponse"
+					     data-auto_prompt="false">
+					</div>
+					
+					<div class="g_id_signin"
+					     data-type="standard"
+					     data-shape="rectangular"
+					     data-theme="filled_blue"
+					     data-text="signin_with"
+					     data-size="large"
+					     data-logo_alignment="left"
+					     data-callback="handleCredentialResponse">
+					</div>
+					<button class="social-btn facebook-btn" (click)="onFacebookLogin()" [disabled]="loading">
+						<span class="social-icon">f</span>
+						Continue with Facebook
+					</button>
+					<button class="social-btn apple-btn" (click)="onAppleLogin()" [disabled]="loading">
+						<span class="social-icon">🍎</span>
+						Continue with Apple
+					</button>
+				</div>
+				
+				<!-- Separator -->
+				<div class="separator">
+					<div class="separator-line"></div>
+					<span class="separator-text">OR</span>
+					<div class="separator-line"></div>
+				</div>
+				
+				<!-- Email Form -->
+				<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="email-form">
+					<alert></alert>
+					
+					<!-- Loading Spinner -->
+					<div class="loading-spinner" *ngIf="loading">
+						<div class="spinner"></div>
+					</div>
+					
+					<div class="email-input-group">
+						<input 
+							type="email" 
+							formControlName="userName" 
+							placeholder="Type your email address" 
+							class="email-input"
+							[ngClass]="{ 'is-invalid': f.userName.errors }"
+						/>
+						<span class="email-icon">✉️</span>
+						<div *ngIf="f.userName.errors" class="invalid-feedback">
+							<div *ngIf="f.userName.errors.required">Email is required</div>
+						</div>
+					</div>
+					
+					<button type="submit" class="email-submit-btn">Continue with Email</button>
+					
+					<div class="password-input-group" *ngIf="showPasswordField">
+						<input 
+							type="password" 
+							formControlName="password" 
+							placeholder="Password" 
+							class="password-input"
+							[ngClass]="{ 'is-invalid': f.password.errors }"
+						/>
+						<div *ngIf="f.password.errors" class="invalid-feedback">
+							<div *ngIf="f.password.errors.required">Password is required</div>
+						</div>
+					</div>
+					
+					<div class="forgot-password" *ngIf="showPasswordField">
+						<a routerLink="/forgot-password" class="forgot-link">Forgot password?</a>
+					</div>
+				</form>
+				
+				<!-- Legal Text -->
+				<div class="legal-text">
+					New accounts are subject to our <a href="#" class="legal-link">Terms</a> and <a href="#" class="legal-link">Privacy Policy</a>.
+				</div>
+				
+				<!-- Security Info -->
+				<div class="security-info">
+					<div class="security-item">
+						<span class="security-icon">🔒</span>
+						<span class="security-text">Security built for Fortune 500 companies.</span>
+					</div>
+					<div class="security-item">
+						<span class="security-icon">✅</span>
+						<span class="security-text">100% Money Back Guarantee.</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
+<script>
+function handleCredentialResponse(response) {
+    console.log('Google OAuth response:', response);
+    
+    if (response.credential) {
+        // Send credential to your backend
+        fetch('http://localhost:7755/v1/oauth/google/callback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'credential=' + encodeURIComponent(response.credential) + '&g_csrf_token=' + encodeURIComponent(response.g_csrf_token || '')
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Backend response:', data);
+            if (data.status === '000') {
+                // Success - redirect to home page
+                window.location.href = '/home';
+            } else {
+                alert('Login failed: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Login failed: ' + error.message);
+        });
+    } else {
+        console.error('No credential received');
+        alert('Google login failed: No credential received');
+    }
+}
+</script>

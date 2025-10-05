@@ -1,57 +1,447 @@
-.card-header{
-	background:none;
-	border:none;
+// Main container
+.login-container {
+  min-height: 100vh;
+  background-color: #faf9f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.box-lang{
-	margin-left: -15px;
-    margin-top: 5px;
+.login-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.login-resources {
-	float: left;
-	width: 100%;
-	text-align: center;
-	margin-top: 27px;
-}
-.login-resources h4 {
-	color: #000000;
-	font-size: 14px;
-	font-weight: 600;
-	margin-bottom: 30px;
-}
-.login-resources ul {
-	float: left;
-	width: 100%;
-	list-style: none;
-}
-.login-resources ul li {
-	float: left;
-	width: 100%;
-	margin-bottom: 20px;
-}
-.login-resources ul li a {
-	color: #ffffff;
-	font-size: 16px;
-	font-weight: 600;
-	float: left;
-	width: 100%;
-	padding: 9px 0;
-}
-.login-resources ul li a i {
-	margin-right: 15px;
+// Left Promotional Section
+.promotional-section {
+  flex: 2;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.promotional-content {
+  max-width: 500px;
+  width: 100%;
+}
 
-.fb {
-	background-color: #3b5998;
+.headline {
+  margin-bottom: 40px;
+  
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #2c3e50;
+    margin: 0;
+    
+    .highlight {
+      color: #ff6b35;
+    }
+  }
 }
-.tw {
-	background-color: #4099ff;
+
+.headshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
 }
-.tw .fa-twitter {
-	color: #fff;
+
+.headshot-item {
+  img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 }
-.gg {
-	background-color: RED;
+
+.trustpilot-rating {
+  margin-bottom: 30px;
+  
+  .trustpilot-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    .trustpilot-text {
+      font-weight: 600;
+      color: #00b67a;
+      font-size: 1.1rem;
+    }
+    
+    .stars {
+      display: flex;
+      gap: 2px;
+      
+      .star {
+        color: #00b67a;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+.testimonial {
+  margin-bottom: 40px;
+  
+  blockquote {
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin: 0 0 15px 0;
+    padding: 0;
+  }
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .author-name {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+  }
+}
+
+.trusted-by {
+  .trusted-by-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .company-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    
+    .company-logo {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #666;
+      opacity: 0.8;
+    }
+  }
+}
+
+// Right Login Form Section
+.login-form-section {
+  flex: 1;
+  background: white;
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-header {
+  margin-bottom: 40px;
+  text-align: center;
+  
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+    .flame-icon {
+      font-size: 1.5rem;
+    }
+    
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+  }
+}
+
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+  
+  // Google Sign-in Button Wrapper
+  asl-google-signin-button {
+    width: 100%;
+    
+    ::ng-deep iframe {
+      width: 100% !important;
+      height: 48px !important;
+    }
+  }
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  background: white;
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #dee2e6;
+    background: #f8f9fa;
+  }
+  
+  .social-icon {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  
+  &.google-btn {
+    background: #4285f4;
+    color: white;
+    border-color: #4285f4;
+    
+    &:hover {
+      background: #3367d6;
+      border-color: #3367d6;
+    }
+  }
+  
+  &.facebook-btn {
+    .social-icon {
+      color: #1877f2;
+    }
+  }
+  
+  &.apple-btn {
+    .social-icon {
+      color: #000;
+    }
+  }
+  
+  &.sso-btn {
+    .social-icon {
+      color: #28a745;
+    }
+  }
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  
+  .separator-line {
+    flex: 1;
+    height: 1px;
+    background: #dee2e6;
+  }
+  
+  .separator-text {
+    padding: 0 20px;
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}
+
+.email-form {
+  .loading-spinner {
+    text-align: center;
+    margin-bottom: 20px;
+    
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #f3f3f3;
+      border-top: 2px solid #ff6b35;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      display: inline-block;
+    }
+  }
+  
+  .email-input-group {
+    position: relative;
+    margin-bottom: 20px;
+    
+    .email-input {
+      width: 100%;
+      padding: 12px 40px 12px 16px;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: #ff6b35;
+      }
+      
+      &.is-invalid {
+        border-color: #dc3545;
+      }
+    }
+    
+    .email-icon {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ff6b35;
+      font-size: 1.1rem;
+    }
+  }
+  
+  .password-input-group {
+    margin-bottom: 15px;
+    
+    .password-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: #ff6b35;
+      }
+      
+      &.is-invalid {
+        border-color: #dc3545;
+      }
+    }
+  }
+  
+  .email-submit-btn {
+    width: 100%;
+    padding: 12px 20px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 20px;
+    
+    &:hover {
+      background: #5a6268;
+    }
+  }
+  
+  .forgot-password {
+    text-align: center;
+    margin-bottom: 20px;
+    
+    .forgot-link {
+      color: #ff6b35;
+      text-decoration: none;
+      font-size: 0.9rem;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.legal-text {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-bottom: 30px;
+  line-height: 1.4;
+  
+  .legal-link {
+    color: #ff6b35;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.security-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  .security-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #28a745;
+    
+    .security-icon {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .login-wrapper {
+    flex-direction: column;
+  }
+  
+  .promotional-section {
+    flex: none;
+    padding: 40px 20px;
+  }
+  
+  .headline h1 {
+    font-size: 2.5rem;
+  }
+  
+  .headshot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .login-form-section {
+    padding: 40px 20px;
+  }
 }

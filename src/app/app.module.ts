@@ -7,6 +7,7 @@ import {
 	LocationStrategy,
 	PathLocationStrategy
 } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule, Meta } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
@@ -42,6 +43,10 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './login';
 import { QrCodeGeneratorModule } from './qr-code-generator/qr-code-generator.module';
 
+// Social Login
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abuelwiss/angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from '@abuelwiss/angularx-social-login';
+
 const components = [
 	DefaultLayoutComponent,
 	HeaderComponent,
@@ -70,7 +75,9 @@ const entryComponents = [
 		SharedComponentModule,
 		ReactiveFormsModule,
 		QrCodeGeneratorModule,
+		SocialLoginModule,
 	],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	declarations: [
 		AppComponent,
 		...components,
@@ -87,7 +94,27 @@ const entryComponents = [
 		DatePipe,
 		[Meta],
 		// provider used to create fake backend
-		fakeBackendProvider, FormGroupDirective
+		fakeBackendProvider, FormGroupDirective,
+		// Social Login Configuration
+		{
+			provide: 'SocialAuthServiceConfig',
+			useValue: {
+				autoLogin: false,
+				providers: [
+					{
+						id: GoogleLoginProvider.PROVIDER_ID,
+						provider: new GoogleLoginProvider('99119992057-m2d22glpdjimk6bf2qr7ffop48mqd4g8.apps.googleusercontent.com')
+					},
+					{
+						id: FacebookLoginProvider.PROVIDER_ID,
+						provider: new FacebookLoginProvider('YOUR_FACEBOOK_APP_ID')
+					}
+				],
+				onError: (err) => {
+					console.error('Social login error:', err);
+				}
+			} as SocialAuthServiceConfig,
+		}
 	],
 	bootstrap: [AppComponent]
 })
