@@ -4,7 +4,7 @@ import { api } from "../../environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class TransactionService {
-	private subPath = `${api.fansApi}/transaction`;
+	private subPath = `${api.baseUrlApi}/transaction`;
     constructor(private http: HttpClient) { }
 	
     getById(id: string) {

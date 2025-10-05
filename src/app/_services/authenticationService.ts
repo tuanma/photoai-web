@@ -32,7 +32,7 @@ export class AuthenticationService {
     
 	loginSocial(userData: any){
 		//FB userData = {"id":"10158889168232663","name":"Mai","email":"tuanma_it@yahoo.com","photoUrl":"https://graph.facebook.com/10158889168232663/picture?type=normal","firstName":"Mai","authToken":"GGQVlZAM3ZA5dXFMRFVmUzQ1VnNYc21OaFJFTmZAkSG43Rmx1eWFkYU9mUG9qdHI1SVRxNWhFbmU5bEZA5Rmg5NG5id3FtV2ZAkd2FHVGhPS2FEbi1hZAGtCOURYSjRVajlma1dBUXJlUktWbjhLejFHS1ZAVVHdWRlc0M3Y4cGo2VUtPaVdPdwZDZD","response":{"name":"Mai","email":"tuanma_it@yahoo.com","picture":{"data":{"height":600,"is_silhouette":false,"url":"https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=10158889168232663&gaming_photo_type=unified_picture&ext=1636650605&hash=AeRK0h7UU2ps76XF7Yo","width":600}},"first_name":"Mai","id":"10158889168232663"},"provider":"FACEBOOK"}
-		return this.http.post(`${api.fansApi}/social`, userData).pipe(map(data => {
+		return this.http.post(`${api.baseUrlApi}/social`, userData).pipe(map(data => {
         	//console.log("loginSocial:");
 			this.response = data
 			if (this.response.status == '000') {
@@ -51,7 +51,7 @@ export class AuthenticationService {
             'Content-Type': 'application/json'
         } );
 
-        return this.http.post<any>( `${api.fansApi}/oauth/token`, userData, { headers } )
+        return this.http.post<any>( `${api.baseUrlApi}/oauth/token`, userData, { headers } )
             .pipe( map( data => {
 				//console.log('token:')
 				//console.log(data)

@@ -4,7 +4,7 @@ import { api } from "../../environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class BlogService {
-	private subPath = `${api.fansApi}/blog`;
+	private subPath = `${api.baseUrlApi}/blog`;
     constructor(private http: HttpClient) { }
 	
     getById(id: string) {

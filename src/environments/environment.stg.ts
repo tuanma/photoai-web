@@ -14,6 +14,6 @@ export const config = {
 }
 
 export const api = {
-	fansApi: config.apiGateway + '/' + config.version
+	baseUrlApi: config.apiGateway + '/' + config.version
 }
 

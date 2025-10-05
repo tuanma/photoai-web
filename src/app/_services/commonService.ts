@@ -13,7 +13,7 @@ export class CommonService {
 	}
 
 	getResource(p: string) {
-		return this.http.get(`${api.fansApi}/resource/list?type=` + p);
+		return this.http.get(`${api.baseUrlApi}/resource/list?type=` + p);
 	}
 	
 }
