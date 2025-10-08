@@ -83,30 +83,10 @@
 				
 				<!-- Social Login Buttons -->
 				<div class="social-login">
-					<div id="g_id_onload"
-					     data-client_id="99119992057-m2d22glpdjimk6bf2qr7ffop48mqd4g8.apps.googleusercontent.com"
-					     data-context="signin"
-					     data-ux_mode="popup"
-					     data-callback="handleCredentialResponse"
-					     data-auto_prompt="false">
-					</div>
-					
-					<div class="g_id_signin"
-					     data-type="standard"
-					     data-shape="rectangular"
-					     data-theme="filled_blue"
-					     data-text="signin_with"
-					     data-size="large"
-					     data-logo_alignment="left"
-					     data-callback="handleCredentialResponse">
-					</div>
-					<button class="social-btn facebook-btn" (click)="onFacebookLogin()" [disabled]="loading">
+					<asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
+					<button class="social-btn facebook-btn" (click)="signInWithFB()" [disabled]="loading">
 						<span class="social-icon">f</span>
 						Continue with Facebook
-					</button>
-					<button class="social-btn apple-btn" (click)="onAppleLogin()" [disabled]="loading">
-						<span class="social-icon">🍎</span>
-						Continue with Apple
 					</button>
 				</div>
 				

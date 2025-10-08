@@ -44,8 +44,8 @@ import { LoginComponent } from './login';
 import { QrCodeGeneratorModule } from './qr-code-generator/qr-code-generator.module';
 
 // Social Login
-import { SocialLoginModule, SocialAuthServiceConfig } from '@abuelwiss/angularx-social-login';
-import { GoogleLoginProvider, FacebookLoginProvider } from '@abuelwiss/angularx-social-login';
+import { SocialLoginModule, SocialAuthServiceConfig, GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from '@abacritt/angularx-social-login';
 
 const components = [
 	DefaultLayoutComponent,
@@ -76,6 +76,7 @@ const entryComponents = [
 		ReactiveFormsModule,
 		QrCodeGeneratorModule,
 		SocialLoginModule,
+		GoogleSigninButtonModule,
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	declarations: [
@@ -100,6 +101,7 @@ const entryComponents = [
 			provide: 'SocialAuthServiceConfig',
 			useValue: {
 				autoLogin: false,
+				lang: 'en',
 				providers: [
 					{
 						id: GoogleLoginProvider.PROVIDER_ID,

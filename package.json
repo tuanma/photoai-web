@@ -17,8 +17,7 @@
   },
   "private": true,
   "dependencies": {
-    "@abacritt/angularx-social-login": "^2.5.1",
-    "@abuelwiss/angularx-social-login": "^2.4.0",
+    "@abacritt/angularx-social-login": "^2.2.0",
     "@angular/animations": "^17.3.0",
     "@angular/cdk": "^17.3.0",
     "@angular/common": "^17.3.0",
@@ -46,7 +45,6 @@
     "@zxing/library": "^0.21.3",
     "ajv": "^8.0.0",
     "alpinejs": "^2.8.2",
-    "angularx-social-login": "^4.1.0",
     "aos": "^2.3.4",
     "bootstrap": "^4.6.0",
     "bootstrap-slider": "^11.0.2",
