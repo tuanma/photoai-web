@@ -9,7 +9,13 @@
 		<nav class="nav-menu">
 			<a routerLink="/pricing" routerLinkActive="active">Pricing</a>
 			<a routerLink="/faq" routerLinkActive="active">FAQ</a>
-			<a routerLink="/login" routerLinkActive="active">Log in</a>
+			<!-- Show login link only when user is not logged in -->
+			<a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">Log in</a>
+			<!-- Show user menu when user is logged in -->
+			<div *ngIf="isLoggedIn" class="user-menu">
+				<span class="user-name">{{ currentUser?.name || currentUser?.user_name || 'User' }}</span>
+				<button class="logout-button" (click)="logout()">Logout</button>
+			</div>
 			<a routerLink="/billing" routerLinkActive="active">Billing</a>
 			<a routerLink="/gallery" routerLinkActive="active">Gallery</a>
 			<a routerLink="/ideas" routerLinkActive="active">Ideas</a>

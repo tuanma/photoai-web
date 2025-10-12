@@ -2,8 +2,8 @@ export const environment = {
 	production: false,
 };
 export const config = {
-	//apiGateway: 'http://localhost:7755',
-	apiGateway: 'https://api.easypayment.space',
+	apiGateway: 'http://localhost:7755',
+	//apiGateway: 'https://api.easypayment.space',
 	profile: 'local',
 	version: 'v1',
 	jwtClientId: '123',

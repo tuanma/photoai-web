@@ -1,4 +1,20 @@
 <div class="pricing-container">
+  <!-- Payment Status Messages -->
+  <div *ngIf="paymentError" class="payment-status-message error">
+    <div class="message-content">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>{{ paymentError }}</span>
+      <button class="close-btn" (click)="paymentError = null">&times;</button>
+    </div>
+  </div>
+
+  <div *ngIf="paymentSuccess" class="payment-status-message success">
+    <div class="message-content">
+      <i class="fas fa-check-circle"></i>
+      <span>{{ paymentSuccess }}</span>
+    </div>
+  </div>
+
   <!-- Header -->
   <div class="pricing-header">
     <div class="container">
@@ -61,9 +77,15 @@
         <!-- Plan Button -->
         <div class="plan-action">
           <button [class]="plan.buttonClass" 
-                  (click)="selectPlan(plan.id)">
-            {{ plan.buttonText }}
+                  (click)="selectPlan(plan.id)"
+                  [disabled]="isProcessingPayment">
+            <span *ngIf="isProcessingPayment">Processing...</span>
+            <span *ngIf="!isProcessingPayment">{{ plan.buttonText }}</span>
           </button>
+          <!-- Error message for this plan -->
+          <div *ngIf="paymentError && isProcessingPayment" class="error-message">
+            {{ paymentError }}
+          </div>
         </div>
       </div>
     </div>

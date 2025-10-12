@@ -4,3 +4,7 @@ export * from './companyService';
 export * from './productService';
 export * from './transactionService';
 export * from './authenticationService';
+export * from './payment.service';
+export * from './payment-history.service';
+export * from './user-subscription.service';
+export * from './photo-pack.service';

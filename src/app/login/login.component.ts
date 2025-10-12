@@ -78,6 +78,7 @@ export class LoginComponent implements OnInit {
 		// stop here if form is invalid
 		if (this.loginForm.invalid) {
 			console.log("loginForm.invalid");
+			this.loading = false;
 			return;
 		}
 		this.authenticationService.login(this.loginForm.value)
@@ -91,12 +92,7 @@ export class LoginComponent implements OnInit {
 						let d = resp.data
 						let u = d.user;
 						console.log(u);
-						if (u.type == 'ADMIN') {
-							this.router.navigate(['/home']);
-						} else {
-							//console.log("User not has role")
-							this.alertService.error("User không được quyền truy cập")
-						}
+						this.router.navigate(['/dashboard']);
 					} else {
 						this.alertService.error('[' + resp.status + '] ' + resp.message);
 						this.loading = false;

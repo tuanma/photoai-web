@@ -120,9 +120,8 @@
 						</div>
 					</div>
 					
-					<button type="submit" class="email-submit-btn">Continue with Email</button>
 					
-					<div class="password-input-group" *ngIf="showPasswordField">
+					<div class="password-input-group">
 						<input 
 							type="password" 
 							formControlName="password" 
@@ -135,6 +134,7 @@
 						</div>
 					</div>
 					
+					<button type="submit" class="email-submit-btn">Continue with Email</button>
 					<div class="forgot-password" *ngIf="showPasswordField">
 						<a routerLink="/forgot-password" class="forgot-link">Forgot password?</a>
 					</div>
