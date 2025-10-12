@@ -1,6 +1,138 @@
 <div class="billing-container">
   <div class="container">
-    <h1>Billing & Subscription</h1>
-    <p>Manage your PhotoAI subscription and billing</p>
+    <!-- Success Message -->
+    <div *ngIf="successMessage" class="success-message">
+      <div class="message-content">
+        <i class="fas fa-check-circle"></i>
+        <div class="message-text">
+          <h3>{{ successMessage }}</h3>
+          <p *ngIf="successPlan">Welcome to {{ successPlan }} plan!</p>
+        </div>
+        <button class="close-btn" (click)="dismissSuccessMessage()">&times;</button>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="billing-header">
+      <h1>Billing & Subscription</h1>
+      <p>Manage your PhotoAI subscription and view payment history</p>
+    </div>
+
+    <!-- Current Subscription -->
+    <div class="current-subscription" *ngIf="currentSubscription">
+      <div class="subscription-card">
+        <div class="subscription-header">
+          <h2>Current Subscription</h2>
+          <span class="status-badge active">Active</span>
+        </div>
+        <div class="subscription-details">
+          <div class="plan-info">
+            <h3>{{ currentSubscription.subscriptionName || 'Pro Plan' }}</h3>
+            <p class="plan-description">{{ currentSubscription.subscriptionDescription || 'Professional photo editing tools' }}</p>
+          </div>
+          <div class="plan-dates">
+            <p><strong>Started:</strong> {{ formatDate(currentSubscription.startDate) }}</p>
+            <p *ngIf="currentSubscription.endDate"><strong>Expires:</strong> {{ formatDate(currentSubscription.endDate) }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Statistics -->
+    <div class="payment-stats" *ngIf="paymentStats">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="stat-content">
+            <h3>${{ paymentStats.totalAmount.toFixed(2) }}</h3>
+            <p>Total Spent</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <div class="stat-content">
+            <h3>{{ paymentStats.paymentCount }}</h3>
+            <p>Total Payments</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment History -->
+    <div class="payment-history">
+      <div class="section-header">
+        <h2>Payment History</h2>
+        <p>View all your past transactions</p>
+      </div>
+
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading payment history...</p>
+      </div>
+
+      <!-- Payment History Table -->
+      <div *ngIf="!isLoading" class="payment-table-container">
+        <table class="payment-table" *ngIf="paymentHistory.length > 0">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Plan</th>
+              <th>Amount</th>
+              <th>Method</th>
+              <th>Status</th>
+              <th>Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let payment of paymentHistory">
+              <td>{{ formatDate(payment.paymentDate) }}</td>
+              <td>{{ payment.subscriptionName || 'Unknown Plan' }}</td>
+              <td class="amount">{{ payment.amountDisplay || '$' + payment.amount.toFixed(2) }}</td>
+              <td class="method">{{ payment.paymentMethod }}</td>
+              <td>
+                <span class="status-badge" [ngClass]="getStatusClass(payment.status)">
+                  {{ payment.statusDisplay || payment.status }}
+                </span>
+              </td>
+              <td class="reference">{{ payment.paymentReference.substring(0, 20) }}...</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Empty State -->
+        <div *ngIf="paymentHistory.length === 0" class="empty-state">
+          <i class="fas fa-receipt"></i>
+          <h3>No Payment History</h3>
+          <p>You haven't made any payments yet.</p>
+          <a routerLink="/pricing" class="btn btn-primary">View Plans</a>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div *ngIf="totalPages > 1" class="pagination">
+        <button 
+          class="page-btn" 
+          [disabled]="currentPage === 1"
+          (click)="onPageChange(currentPage - 1)">
+          Previous
+        </button>
+        
+        <span class="page-info">
+          Page {{ currentPage }} of {{ totalPages }}
+        </span>
+        
+        <button 
+          class="page-btn" 
+          [disabled]="currentPage === totalPages"
+          (click)="onPageChange(currentPage + 1)">
+          Next
+        </button>
+      </div>
+    </div>
   </div>
 </div>

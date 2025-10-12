@@ -12,6 +12,7 @@ import { ContactComponent } from './contact';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
 import { QrCodeGeneratorComponent } from './qr-code-generator/qr-code-generator.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
 	{
@@ -26,6 +27,14 @@ export const routes: Routes = [
 		component: LoginComponent,
 		data: {
 			breadcrumb: 'Login Page'
+		}
+	},
+	{
+		path: 'dashboard',
+		component: DashboardComponent,
+		canActivate: [AuthGuard],
+		data: {
+			breadcrumb: 'Dashboard'
 		}
 	},
 	{

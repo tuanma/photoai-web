@@ -1,0 +1,161 @@
+<div class="dashboard-container">
+  <!-- Top Navigation Bar -->
+  <div class="top-nav">
+    <div class="nav-left">
+      <div class="logo">
+        <h1>PHOTO AI™</h1>
+      </div>
+    </div>
+    
+    <div class="nav-right">
+      <button class="nav-btn">Select</button>
+      <button class="nav-btn" (click)="buyCredits()">Buy more credits</button>
+      <button class="nav-btn upgrade-btn" (click)="upgrade()">Upgrade</button>
+      
+      <div class="credits-display">
+        <div class="credits-icon">⚡</div>
+        <div class="credits-info">
+          <div class="credits-current">{{ currentCredits }}</div>
+          <div class="credits-bonus">+{{ bonusCredits }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab Navigation -->
+  <div class="tab-nav">
+    <button class="tab-btn" [class.active]="activeTab === 'photo-packs'" (click)="setActiveTab('photo-packs')">
+      Photo packs <span class="new-badge">NEW</span>
+    </button>
+    <button class="tab-btn" [class.active]="activeTab === 'examples'" (click)="setActiveTab('examples')">Examples</button>
+    <button class="tab-btn" [class.active]="activeTab === 'camera'" (click)="setActiveTab('camera')">Camera</button>
+    <button class="tab-btn" [class.active]="activeTab === 'videos'" (click)="setActiveTab('videos')">Videos</button>
+    <button class="tab-btn" [class.active]="activeTab === 'saved'" (click)="setActiveTab('saved')">Saved</button>
+    <button class="tab-btn" [class.active]="activeTab === 'deleted'" (click)="setActiveTab('deleted')">Deleted</button>
+  </div>
+
+  <div class="main-content">
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+      <!-- Notification -->
+      <div class="notification">
+        <p>2025-10-11: New <strong>Auto improve prompt</strong> feature is live. Use it to get better more visual results especially with Hyper Realism enabled!</p>
+      </div>
+
+      <!-- Settings Menu -->
+      <div class="settings-menu">
+        <div class="menu-item">
+          <div class="menu-icon">👤</div>
+          <span>Select model</span>
+          <div class="chevron">›</div>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-icon">🎨</div>
+          <span>Select style</span>
+          <span class="new-badge">NEW</span>
+          <div class="chevron">›</div>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-icon">⚙️</div>
+          <span>Set preferences</span>
+          <div class="chevron">›</div>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-icon">📷</div>
+          <span>Take a photo</span>
+          <div class="chevron">›</div>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-icon">🔄</div>
+          <span>Remix a photo</span>
+          <div class="chevron">›</div>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-icon">🎬</div>
+          <span>Make a video</span>
+          <div class="chevron">›</div>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-icon">👕</div>
+          <span>Try on clothes</span>
+          <div class="chevron">›</div>
+        </div>
+      </div>
+
+      <!-- Photo Generation Controls -->
+      <div class="generation-controls">
+        <div class="photo-count">
+          <input type="text" [(ngModel)]="photoCount" class="count-input" placeholder="1 photo">
+        </div>
+        
+        <button class="generate-btn" (click)="generatePhotos()">
+          Take {{ photoCount }} photo (~32s)
+        </button>
+        
+        <div class="hyper-realism-toggle">
+          <label class="toggle-label">
+            <input type="checkbox" [(ngModel)]="hyperRealismEnabled" (change)="toggleHyperRealism()">
+            <span class="toggle-slider"></span>
+            <span class="toggle-text">
+              <span class="lightning">⚡</span>
+              HYPER REALISM
+            </span>
+          </label>
+          <p class="toggle-description">Hyper Realism is in beta and costs 5 credits per photo</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content-area">
+      <!-- Search Bar -->
+      <div class="search-section">
+        <input 
+          type="text" 
+          [(ngModel)]="searchQuery" 
+          (input)="onSearchChange()"
+          placeholder="Search photo packs by name..." 
+          class="search-input">
+      </div>
+
+      <!-- Photo Packs Grid -->
+      <div class="photo-packs-container">
+        <!-- Loading State -->
+        <div *ngIf="isLoading" class="loading-state">
+          <div class="spinner"></div>
+          <p>Loading photo packs...</p>
+        </div>
+
+        <!-- Photo Packs -->
+        <div *ngIf="!isLoading" class="photo-packs-scroll">
+          <div class="photo-pack" *ngFor="let pack of filteredPhotoPacks" (click)="selectPhotoPack(pack)">
+            <div class="pack-preview">
+              <div class="preview-images">
+                <div class="preview-image" *ngFor="let image of pack.previewImages">
+                  <img [src]="image" [alt]="pack.title + ' preview'" onerror="this.src='/assets/images/placeholder.svg'">
+                </div>
+              </div>
+              <div class="pack-icon">{{ pack.icon }}</div>
+            </div>
+            
+            <div class="pack-info">
+              <h3 class="pack-title">{{ pack.title }}</h3>
+              <p class="pack-description">{{ pack.description }}</p>
+              
+              <div class="pack-stats">
+                <button class="stat-btn photos-count">{{ pack.photoCount }} PHOTOS</button>
+                <button class="stat-btn usage-count">{{ pack.usageCount }}X RAN THIS WEEK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
