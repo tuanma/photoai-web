@@ -2,13 +2,11 @@
 	<div class="header-container">
 		<div class="logo">
 			<a routerLink="/home">
-				<img src="assets/images/photoai-logo.png" alt="PhotoAI Logo" class="logo-image">
-				<span class="logo-text">PhotoAI</span>
+				<img src="assets/images/Logo-ai.png" alt="PhotoAI Logo" class="logo-image">
 			</a>
 		</div>
 		<nav class="nav-menu">
 			<a routerLink="/pricing" routerLinkActive="active">Pricing</a>
-			<a routerLink="/faq" routerLinkActive="active">FAQ</a>
 			<!-- Show login link only when user is not logged in -->
 			<a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">Log in</a>
 			<!-- Show user menu when user is logged in -->
@@ -20,7 +18,8 @@
 			<a routerLink="/gallery" routerLinkActive="active">Gallery</a>
 			<a routerLink="/ideas" routerLinkActive="active">Ideas</a>
 			<button class="cta-button" (click)="takePhotos()">
-				Take photos like these →
+				Take photo like these
+				<span class="cta-arrow">→</span>
 			</button>
 		</nav>
 	</div>

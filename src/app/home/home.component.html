@@ -2,118 +2,850 @@
 <section class="hero-section">
 	<div class="hero-container">
 		<div class="hero-content">
-			<h1 class="hero-title">Create Stunning AI Photos</h1>
-			<p class="hero-subtitle">Transform your photos with AI-powered editing tools. Remove backgrounds, enhance quality, and create professional images in seconds.</p>
-			<div class="hero-buttons">
-				<button class="btn-primary" (click)="startEditing()">Start Editing</button>
-				<button class="btn-secondary" (click)="learnMore()">Learn More</button>
+			<h1 class="hero-title hero-title-gradient">
+				Get pro shots in seconds
+			</h1>
+			<p class="hero-subtitle">Edit photos, generate images, and design freely with Pixlr's powerful AI tools - right in your browser, on mobile, or desktop</p>
+			
+			<!-- Feature Grid -->
+			<div class="feature-grid">
+				<div class="feature-item" (click)="navigateToTool('upload-selfies')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/material-symbols_upload-rounded.png" alt="Upload">
+					</div>
+					<span class="feature-text">Upload your selfies</span>
+				</div>
+				<div class="feature-item" (click)="navigateToTool('ai-model')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/user-male-circle.png" alt="AI Model">
+						<span class="sparkles">✨</span>
+					</div>
+					<span class="feature-text">Create an AI model</span>
+				</div>
+				<div class="feature-item" (click)="navigateToTool('ai-influencer')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/streamline_ai-generate-portrait-image-spark.png" alt="AI Influencer">
+						<span class="sparkles">✨</span>
+					</div>
+					<span class="feature-text">Create a 100% AI influencer</span>
+				</div>
+				<div class="feature-item" (click)="navigateToTool('ai-photos')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/material-symbols_add-a-photo-outline-rounded.png" alt="AI Photos">
+						<span class="plus">+</span>
+					</div>
+					<span class="feature-text">Take AI photos</span>
+				</div>
+				<div class="feature-item" (click)="navigateToTool('ai-videos')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/mingcute_video-line.png" alt="AI Videos">
+					</div>
+					<span class="feature-text">Create AI videos</span>
+				</div>
+				<div class="feature-item" (click)="navigateToTool('photo-packs')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/streamline_ai-generate-portrait-image-spark.png" alt="Photo Packs">
+						<span class="plus">+</span>
+					</div>
+					<span class="feature-text">Run 100s of photo packs</span>
+				</div>
+				<div class="feature-item" (click)="navigateToTool('product-videos')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/ri_video-on-ai-line.png" alt="Product Videos">
+						<span class="sparkles">✨</span>
+					</div>
+					<span class="feature-text">Create product videos</span>
+				</div>
+				<div class="feature-item" (click)="navigateToTool('try-clothes')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/temaki_clothes-hanger.png" alt="Try Clothes">
+					</div>
+					<span class="feature-text">Try on clothes</span>
+				</div>
+			</div>
+
+			<!-- CTA Section -->
+			<div class="cta-section">
+				<div class="cta-input-group">
+					<input type="email" placeholder="Type your email..." class="cta-email-input">
+					<button class="cta-primary-btn" (click)="startTakingPhotos()">
+						Start taking AI photos now >
+					</button>
+				</div>
+				<div class="cta-separator">
+					<span class="separator-text">Or</span>
+				</div>
+				<button class="cta-google-btn" (click)="signInWithGoogle()">
+					<span class="google-icon">G</span>
+					Sign in with Google
+				</button>
+				<p class="cta-login-prompt">If you already have an account, we'll log you in</p>
 			</div>
 		</div>
-		<div class="hero-image">
-			<div class="photo-editor-mockup">
-				<div class="editor-interface">
-					<div class="before-after-container">
-						<div class="before-image">
-							<img src="assets/images/before-photo.jpg" alt="Before" class="editor-photo">
-							<div class="before-label">Before</div>
-						</div>
-						<div class="after-image">
-							<img src="assets/images/after-photo.jpg" alt="After" class="editor-photo">
-							<div class="after-label">After</div>
-						</div>
+	</div>
+</section>
+<!--Section Integrations-->
+<section class="integrations-section">
+	<div class="integrations-container">
+		<div class="integrations-logos">
+			<div class="logo-item">
+				<div class="quickbooks-logo">
+					<div class="qb-icon">qb</div>
+					<div class="qb-text">
+						<span class="qb-intuit">intuit</span>
+						<span class="qb-quickbooks">quickbooks</span>
 					</div>
-					<div class="ai-processing-indicator">
-						<div class="processing-bar"></div>
-						<span class="processing-text">AI Processing...</span>
+				</div>
+			</div>
+			<div class="logo-item">
+				<div class="quickbooks-logo">
+					<div class="qb-icon">qb</div>
+					<div class="qb-text">
+						<span class="qb-intuit">intuit</span>
+						<span class="qb-quickbooks">quickbooks</span>
+					</div>
+				</div>
+			</div>
+			<div class="logo-item">
+				<div class="stripe-logo">stripe</div>
+			</div>
+			<div class="logo-item">
+				<div class="paypal-logo">
+					<div class="paypal-icon">P</div>
+					<span class="paypal-text">PayPal</span>
+				</div>
+			</div>
+			<div class="logo-item">
+				<div class="paypal-logo">
+					<div class="paypal-icon">P</div>
+					<span class="paypal-text">PayPal</span>
+				</div>
+			</div>
+			<div class="logo-item">
+				<div class="venmo-logo">venmo</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--Section trusted-->
+<section class="trusted-section">
+	<div class="trusted-container">
+		<div class="trusted-header">
+			<h2 class="trusted-title">
+				<span class="trusted-title-normal">See what our trusted</span>
+				<span class="trusted-title-gradient">users Say</span>
+			</h2>
+			<p class="trusted-description">
+				Projectile helps you collaborate more smoothly and communicate better. Projectile helps you collaborate more smoothly and communicate better.
+			</p>
+		</div>
+		
+		<div class="testimonials-grid">
+			<div class="testimonial-card">
+				<div class="testimonial-quote">
+					"Chainlist is amazing stuff. I use it everyday and it helps me to maintain my sanity."
+				</div>
+				<div class="testimonial-user">
+					<div class="user-avatar">
+						<img src="assets/images/sandra.jpg" alt="Danny Zebelski">
+					</div>
+					<div class="user-info">
+						<div class="user-name">Danny Zebelski</div>
+						<div class="user-title">CEO of Hurricane Tbk.</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="testimonial-card">
+				<div class="testimonial-quote">
+					"We love your product and are so glad we can help spread the news!"
+				</div>
+				<div class="testimonial-user">
+					<div class="user-avatar">
+						<img src="assets/images/sandra.jpg" alt="Sandra Tilbe">
+					</div>
+					<div class="user-info">
+						<div class="user-name">Sandra Tilbe</div>
+						<div class="user-title">CTO of Metagroup</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="testimonial-card">
+				<div class="testimonial-quote">
+					"The best Project Management App is: Chainlist, I absolutely love them."
+				</div>
+				<div class="testimonial-user">
+					<div class="user-avatar">
+						<img src="assets/images/sandra.jpg" alt="Leonardo Bernadechi">
+					</div>
+					<div class="user-info">
+						<div class="user-name">Leonardo Bernadechi</div>
+						<div class="user-title">Freelancer</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-
-<!-- AI Tools Section -->
-<section class="ai-tools-section">
-	<div class="container">
-		<h2 class="section-title">AI-Powered Photo Editing Tools</h2>
-		<p class="section-desc">Professional photo editing made simple with advanced AI technology</p>
-		<div class="ai-tools-grid">
-			<!-- Background Removal -->
-			<div class="ai-tool-card" (click)="navigateToTool('background-removal')">
-				<div class="tool-icon">
-					<i class="fas fa-cut"></i>
+<!--Section gallery-->
+<section class="gallery-section">
+	<div class="gallery-container">
+		<div class="gallery-grid">
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 1">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait2.jpg" alt="Portrait 2">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 3">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait3.jpg" alt="Portrait 4">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait2.jpg" alt="Portrait 5">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 6">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait2.jpg" alt="Portrait 7">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait3.jpg" alt="Portrait 8">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 9">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 10">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait3.jpg" alt="Portrait 11">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 12">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait2.jpg" alt="Portrait 13">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 14">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 15">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait3.jpg" alt="Portrait 16">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 17">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait2.jpg" alt="Portrait 18">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 19">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait2.jpg" alt="Portrait 20">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 21">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 22">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait3.jpg" alt="Portrait 23">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 24">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait2.jpg" alt="Portrait 25">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait1.jpg" alt="Portrait 26">
+			</div>
+			<div class="gallery-item">
+				<img src="assets/images/gallery/portrait3.jpg" alt="Portrait 27">
+			</div>
+		</div>
+	</div>
+</section>
+<!--Section compare-->
+<section class="compare-section">
+	<div class="compare-container">
+		<div class="compare-header">
+			<h2 class="compare-title">How does <span class="photo-ai-gradient">Photo AI</span> compare to other AI image generators?</h2>
+			<p class="compare-description">With the same uploaded selfies, Photo AI performs far better than competitors in photorealism and resemblance.</p>
+		</div>
+		
+		<div class="comparison-table">
+			<div class="table-header">
+				<div class="header-cell feature-header"></div>
+				<div class="header-cell">Midjourney (2025)</div>
+				<div class="header-cell">
+					<span class="photo-ai-gradient">Photo AI™</span> (2025)
 				</div>
-				<h3>Background Removal</h3>
-				<p>Remove backgrounds instantly with AI precision</p>
-				<div class="tool-features">
-					<span class="feature-tag">One-click</span>
-					<span class="feature-tag">High Quality</span>
+				<div class="header-cell">ChatGPT (2025)</div>
+			</div>
+			
+			<div class="table-row">
+				<div class="feature-cell">Train real people</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-no">✗</span>
+				</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-yes">✓</span>
+				</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-no">✗</span>
 				</div>
 			</div>
-
-			<!-- Photo Upscaling -->
-			<div class="ai-tool-card" (click)="navigateToTool('upscaling')">
-				<div class="tool-icon">
-					<i class="fas fa-expand-arrows-alt"></i>
+			
+			<div class="table-row">
+				<div class="feature-cell">Consistent character</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-no">✗</span>
 				</div>
-				<h3>Photo Upscaling</h3>
-				<p>Enhance image resolution up to 4x with AI</p>
-				<div class="tool-features">
-					<span class="feature-tag">4x Resolution</span>
-					<span class="feature-tag">Smart AI</span>
+				<div class="check-cell">
+					<span class="checkmark checkmark-yes">✓</span>
 				</div>
-			</div>
-
-			<!-- AI Photo Generation -->
-			<div class="ai-tool-card" (click)="navigateToTool('ai-generation')">
-				<div class="tool-icon">
-					<i class="fas fa-magic"></i>
-				</div>
-				<h3>AI Photo Generation</h3>
-				<p>Create stunning photos from text descriptions</p>
-				<div class="tool-features">
-					<span class="feature-tag">Text to Image</span>
-					<span class="feature-tag">Creative</span>
+				<div class="check-cell">
+					<span class="checkmark checkmark-no">✗</span>
 				</div>
 			</div>
-
-			<!-- Photo Enhancement -->
-			<div class="ai-tool-card" (click)="navigateToTool('enhancement')">
-				<div class="tool-icon">
-					<i class="fas fa-adjust"></i>
+			
+			<div class="table-row">
+				<div class="feature-cell">High photorealism</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-yes">✓</span>
 				</div>
-				<h3>Photo Enhancement</h3>
-				<p>Automatically improve lighting, colors, and clarity</p>
-				<div class="tool-features">
-					<span class="feature-tag">Auto Fix</span>
-					<span class="feature-tag">Professional</span>
+				<div class="check-cell">
+					<span class="checkmark checkmark-yes">✓</span>
 				</div>
-			</div>
-
-			<!-- Object Removal -->
-			<div class="ai-tool-card" (click)="navigateToTool('object-removal')">
-				<div class="tool-icon">
-					<i class="fas fa-eraser"></i>
-				</div>
-				<h3>Object Removal</h3>
-				<p>Remove unwanted objects from photos seamlessly</p>
-				<div class="tool-features">
-					<span class="feature-tag">Smart Remove</span>
-					<span class="feature-tag">Natural</span>
+				<div class="check-cell">
+					<span class="checkmark checkmark-no">✗</span>
 				</div>
 			</div>
+			
+			<div class="table-row">
+				<div class="feature-cell">Maintains ethnicity</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-no">✗</span>
+				</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-yes">✓</span>
+				</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-yes">✓</span>
+				</div>
+			</div>
+			
+			<div class="table-row">
+				<div class="feature-cell">Clear and sharp</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-yes">✓</span>
+				</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-yes">✓</span>
+				</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-no">✗</span>
+				</div>
+			</div>
+			
+			<div class="table-row">
+				<div class="feature-cell">Zoom out of photos</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-yes">✓</span>
+				</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-yes">✓</span>
+				</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-no">✗</span>
+				</div>
+			</div>
+			
+			<div class="table-row">
+				<div class="feature-cell">Create videos</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-no">✗</span>
+				</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-yes">✓</span>
+				</div>
+				<div class="check-cell">
+					<span class="checkmark checkmark-no">✗</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--Section AI Models-->
+<section class="ai-models-section">
+	<div class="ai-models-container">
+		<div class="ai-models-content">
+			<div class="ai-models-visual">
+				<div class="visual-placeholder">
+					<!-- Placeholder for AI model creation interface -->
+				</div>
+			</div>
+			<div class="ai-models-text">
+				<h2 class="ai-models-title">
+					<span class="gradient-text-1">Create your own</span>
+					<span class="gradient-text-2">AI model</span>
+				</h2>
+				<div class="ai-models-description">
+					<p>Create lifelike and realistic photos of yourself (or an influencer you work for) by creating your own AI model. Upload a set of just 10 to 20 photos in a diverse range of places, settings, and times. Press Create new AI model and it starts training your model. By inputting these images into your model, you're teaching it to recognize and replicate it.</p>
+					
+					<p>You only need to create your AI model once which takes about 5 minutes. Photo AI use the highest quality training with the highest possible steps which takes more GPU cycles (and thus time and cost).</p>
+					
+					<p>After your AI model is done, you can take infinite photos with it fast</p>
+				</div>
+				<button class="ai-models-btn">Create new AI model ></button>
+			</div>
+		</div>
+	</div>
+</section>
 
-			<!-- Face Swap -->
-			<div class="ai-tool-card" (click)="navigateToTool('face-swap')">
-				<div class="tool-icon">
-					<i class="fas fa-user-friends"></i>
+<!--Section AI Videos-->
+<section class="ai-videos-section">
+	<div class="ai-videos-container">
+		<div class="ai-videos-content">
+			<div class="ai-videos-text">
+				<h2 class="ai-videos-title">
+					<span class="gradient-text-1">Create AI</span>
+					<span class="gradient-text-2">videos</span>
+				</h2>
+				<div class="ai-videos-description">
+					<p>Take any AI photo you generated, and turn it into a video by tapping Make video A few minutes later you have a short video clip of the photo giving you an immersive virtual reality like experience.</p>
+					
+					<p>You can even add a talking script to make your AI model talk! The video on the side here is 100% AI and created with Photo AI. Next features we'll add is boomerang videos, background audio and music and longer 10-30 second clips.</p>
 				</div>
-				<h3>Face Swap</h3>
-				<p>Swap faces between photos with realistic results</p>
-				<div class="tool-features">
-					<span class="feature-tag">Realistic</span>
-					<span class="feature-tag">Fun</span>
+				<button class="ai-videos-btn">Make Video ></button>
+			</div>
+			<div class="ai-videos-visual">
+				<div class="visual-placeholder">
+					<!-- Placeholder for video player -->
 				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--Section Generate Photos & Videos-->
+<section class="generate-section">
+	<div class="generate-container">
+		<div class="generate-content">
+			<div class="generate-visual">
+				<div class="visual-placeholder">
+					<!-- Placeholder for photo generation interface -->
+				</div>
+			</div>
+			<div class="generate-text">
+				<h2 class="generate-title">
+					<span class="gradient-text-1">Generate photos &</span>
+					<span class="gradient-text-2">videos in any pose</span>
+					<span class="gradient-text-3">or place</span>
+				</h2>
+				<div class="generate-description">
+					<p>Design any scene you wish, from commonplace to rare, stunning instances. Imagine the ability to create a photograph of a sunlit Parisian cafe in the 1920s, or a moonlit beach in Bali with just the right clothes, all from the comfort of your living room.</p>
+					
+					<p>Simply write your desired scene, press 📸 Take photo and watch as the model generates a highly realistic photo that aligns with your vision in just ~20 seconds.</p>
+				</div>
+				<button class="generate-btn">Take photo ></button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--Section photo packs-->
+<section class="photo-packs-section">
+	<div class="photo-packs-container">
+		<div class="photo-packs-header">
+			<h2 class="photo-packs-title">Pick from 145+ photo packs</h2>
+			<p class="photo-packs-description">With Photo AI's preset photo packs, you don't need to do any of the hard work of writing prompts or setting parameters. Instead, with just one click, Photo AI takes a set of photos for you and we are adding new photo packs every day. All packs are included in your membership! You can try as many as you want!</p>
+		</div>
+		
+		<div class="photo-packs-grid">
+			<div class="photo-pack-card">
+				<div class="pack-images">
+					<img src="assets/images/packs/diwali1.jpg" alt="Diwali Photo 1">
+					<img src="assets/images/packs/diwali2.jpg" alt="Diwali Photo 2">
+					<img src="assets/images/packs/diwali3.jpg" alt="Diwali Photo 3">
+					<img src="assets/images/packs/diwali4.jpg" alt="Diwali Photo 4">
+				</div>
+				<h3 class="pack-title">AI Diwali Photos</h3>
+				<div class="pack-stats">
+					<span class="pack-photos">30 PHOTOS</span>
+					<span class="pack-runs">25K RAN THIS WEEK</span>
+				</div>
+				<p class="pack-description">Celebrate the festival of lights with beautiful AI-generated Diwali photos featuring traditional attire and festive settings.</p>
+			</div>
+			
+			<div class="photo-pack-card">
+				<div class="pack-images">
+					<img src="assets/images/packs/instagram1.jpg" alt="Instagram Photo 1">
+					<img src="assets/images/packs/instagram2.jpg" alt="Instagram Photo 2">
+					<img src="assets/images/packs/instagram3.jpg" alt="Instagram Photo 3">
+					<img src="assets/images/packs/instagram4.jpg" alt="Instagram Photo 4">
+				</div>
+				<h3 class="pack-title">Instagram</h3>
+				<div class="pack-stats">
+					<span class="pack-photos">25 PHOTOS</span>
+					<span class="pack-runs">10K RAN THIS WEEK</span>
+				</div>
+				<p class="pack-description">Perfect Instagram-ready photos with trendy filters and modern aesthetics for your social media presence.</p>
+			</div>
+			
+			<div class="photo-pack-card">
+				<div class="pack-images">
+					<img src="assets/images/packs/tinder1.jpg" alt="Tinder Photo 1">
+					<img src="assets/images/packs/tinder2.jpg" alt="Tinder Photo 2">
+					<img src="assets/images/packs/tinder3.jpg" alt="Tinder Photo 3">
+					<img src="assets/images/packs/tinder4.jpg" alt="Tinder Photo 4">
+				</div>
+				<h3 class="pack-title">Tinder</h3>
+				<div class="pack-stats">
+					<span class="pack-photos">20 PHOTOS</span>
+					<span class="pack-runs">15K RAN THIS WEEK</span>
+				</div>
+				<p class="pack-description">Dating app photos that make you stand out with attractive and engaging profile pictures.</p>
+			</div>
+			
+			<div class="photo-pack-card">
+				<div class="pack-images">
+					<img src="assets/images/packs/oldmoney1.jpg" alt="Old Money Photo 1">
+					<img src="assets/images/packs/oldmoney2.jpg" alt="Old Money Photo 2">
+					<img src="assets/images/packs/oldmoney3.jpg" alt="Old Money Photo 3">
+					<img src="assets/images/packs/oldmoney4.jpg" alt="Old Money Photo 4">
+				</div>
+				<h3 class="pack-title">Old money</h3>
+				<div class="pack-stats">
+					<span class="pack-photos">28 PHOTOS</span>
+					<span class="pack-runs">8K RAN THIS WEEK</span>
+				</div>
+				<p class="pack-description">Sophisticated and elegant photos with a classic, timeless aesthetic that exudes wealth and refinement.</p>
+			</div>
+			
+			<div class="photo-pack-card">
+				<div class="pack-images">
+					<img src="assets/images/packs/luxury1.jpg" alt="Luxury Photo 1">
+					<img src="assets/images/packs/luxury2.jpg" alt="Luxury Photo 2">
+					<img src="assets/images/packs/luxury3.jpg" alt="Luxury Photo 3">
+					<img src="assets/images/packs/luxury4.jpg" alt="Luxury Photo 4">
+				</div>
+				<h3 class="pack-title">Luxury Lifestyle</h3>
+				<div class="pack-stats">
+					<span class="pack-photos">32 PHOTOS</span>
+					<span class="pack-runs">12K RAN THIS WEEK</span>
+				</div>
+				<p class="pack-description">High-end lifestyle photos featuring luxury settings, premium fashion, and sophisticated environments.</p>
+			</div>
+			
+			<div class="photo-pack-card">
+				<div class="pack-images">
+					<img src="assets/images/packs/santorini1.jpg" alt="Santorini Photo 1">
+					<img src="assets/images/packs/santorini2.jpg" alt="Santorini Photo 2">
+					<img src="assets/images/packs/santorini3.jpg" alt="Santorini Photo 3">
+					<img src="assets/images/packs/santorini4.jpg" alt="Santorini Photo 4">
+				</div>
+				<h3 class="pack-title">Santorini Summer</h3>
+				<div class="pack-stats">
+					<span class="pack-photos">24 PHOTOS</span>
+					<span class="pack-runs">18K RAN THIS WEEK</span>
+				</div>
+				<p class="pack-description">Breathtaking summer photos set in the beautiful Greek island of Santorini with stunning sunsets and white architecture.</p>
+			</div>
+			
+			<div class="photo-pack-card">
+				<div class="pack-images">
+					<img src="assets/images/packs/dating1.jpg" alt="Dating Photo 1">
+					<img src="assets/images/packs/dating2.jpg" alt="Dating Photo 2">
+					<img src="assets/images/packs/dating3.jpg" alt="Dating Photo 3">
+					<img src="assets/images/packs/dating4.jpg" alt="Dating Photo 4">
+				</div>
+				<h3 class="pack-title">Dating headshots</h3>
+				<div class="pack-stats">
+					<span class="pack-photos">22 PHOTOS</span>
+					<span class="pack-runs">20K RAN THIS WEEK</span>
+				</div>
+				<p class="pack-description">Professional dating profile headshots that are both attractive and trustworthy for online dating success.</p>
+			</div>
+			
+			<div class="photo-pack-card">
+				<div class="pack-images">
+					<img src="assets/images/packs/speaker1.jpg" alt="Speaker Photo 1">
+					<img src="assets/images/packs/speaker2.jpg" alt="Speaker Photo 2">
+					<img src="assets/images/packs/speaker3.jpg" alt="Speaker Photo 3">
+					<img src="assets/images/packs/speaker4.jpg" alt="Speaker Photo 4">
+				</div>
+				<h3 class="pack-title">Keynote speaker</h3>
+				<div class="pack-stats">
+					<span class="pack-photos">26 PHOTOS</span>
+					<span class="pack-runs">6K RAN THIS WEEK</span>
+				</div>
+				<p class="pack-description">Professional speaker photos perfect for conference materials, websites, and professional profiles.</p>
+			</div>
+			
+			<div class="photo-pack-card">
+				<div class="pack-images">
+					<img src="assets/images/packs/halloween1.jpg" alt="Halloween Photo 1">
+					<img src="assets/images/packs/halloween2.jpg" alt="Halloween Photo 2">
+					<img src="assets/images/packs/halloween3.jpg" alt="Halloween Photo 3">
+					<img src="assets/images/packs/halloween4.jpg" alt="Halloween Photo 4">
+				</div>
+				<h3 class="pack-title">Halloween</h3>
+				<div class="pack-stats">
+					<span class="pack-photos">30 PHOTOS</span>
+					<span class="pack-runs">14K RAN THIS WEEK</span>
+				</div>
+				<p class="pack-description">Spooky and fun Halloween-themed photos with costumes, makeup, and festive decorations.</p>
+			</div>
+			
+			<div class="photo-pack-card">
+				<div class="pack-images">
+					<img src="assets/images/packs/nature1.jpg" alt="Nature Photo 1">
+					<img src="assets/images/packs/nature2.jpg" alt="Nature Photo 2">
+					<img src="assets/images/packs/nature3.jpg" alt="Nature Photo 3">
+					<img src="assets/images/packs/nature4.jpg" alt="Nature Photo 4">
+				</div>
+				<h3 class="pack-title">Nature</h3>
+				<div class="pack-stats">
+					<span class="pack-photos">28 PHOTOS</span>
+					<span class="pack-runs">16K RAN THIS WEEK</span>
+				</div>
+				<p class="pack-description">Beautiful outdoor photos featuring natural landscapes, forests, mountains, and scenic backgrounds.</p>
+			</div>
+			
+			<div class="photo-pack-card">
+				<div class="pack-images">
+					<img src="assets/images/packs/corporate1.jpg" alt="Corporate Photo 1">
+					<img src="assets/images/packs/corporate2.jpg" alt="Corporate Photo 2">
+					<img src="assets/images/packs/corporate3.jpg" alt="Corporate Photo 3">
+					<img src="assets/images/packs/corporate4.jpg" alt="Corporate Photo 4">
+				</div>
+				<h3 class="pack-title">Corporate Headshots for Your Team</h3>
+				<div class="pack-stats">
+					<span class="pack-photos">35 PHOTOS</span>
+					<span class="pack-runs">9K RAN THIS WEEK</span>
+				</div>
+				<p class="pack-description">Professional corporate headshots perfect for company websites, LinkedIn profiles, and business materials.</p>
+			</div>
+			
+			<div class="photo-pack-card">
+				<div class="pack-images">
+					<img src="assets/images/packs/selfie1.jpg" alt="Selfie Photo 1">
+					<img src="assets/images/packs/selfie2.jpg" alt="Selfie Photo 2">
+					<img src="assets/images/packs/selfie3.jpg" alt="Selfie Photo 3">
+					<img src="assets/images/packs/selfie4.jpg" alt="Selfie Photo 4">
+				</div>
+				<h3 class="pack-title">AI Selfies</h3>
+				<div class="pack-stats">
+					<span class="pack-photos">25 PHOTOS</span>
+					<span class="pack-runs">22K RAN THIS WEEK</span>
+				</div>
+				<p class="pack-description">Casual and fun selfie-style photos perfect for social media and personal profiles.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--Section Choose Your Plan-->
+<section class="choose-plan-section">
+	<div class="choose-plan-container">
+		<div class="choose-plan-header">
+			<h2 class="choose-plan-title">Choose Your Plan</h2>
+			<p class="choose-plan-description">Whether you want to get organized, keep your personal life on track, or boost workplace productivity, Photo AI has the right plan for you.</p>
+		</div>
+		
+		<div class="pricing-toggle">
+			<button class="toggle-btn" [class.active]="!isYearly" (click)="setPricing('monthly')">Monthly</button>
+			<button class="toggle-btn" [class.active]="isYearly" (click)="setPricing('yearly')">Yearly: get 6+ months free</button>
+		</div>
+		
+		<div class="pricing-cards">
+			<!-- Starter Plan -->
+			<div class="pricing-card">
+				<div class="plan-badge">Starter</div>
+				<div class="card-price">
+					<span class="price-amount">$9</span>
+					<span class="price-period">/month</span>
+				</div>
+				<div class="billing-info">billed annually $599/~6 months free</div>
+				<p class="plan-description">Get started with basic AI photos, create your first model, and begin your AI photography journey.</p>
+				
+				<div class="core-features">
+					<div class="core-feature">Take 50 AI Photos (credits)</div>
+					<div class="core-feature">Create 1 AI Model per month</div>
+					<div class="core-feature">Flux™ photorealistic model</div>
+				</div>
+				
+				<div class="features-section">
+					<h4>Features:</h4>
+					<ul class="card-features">
+						<li>✓ Low quality photos</li>
+						<li>✓ Low likeness</li>
+						<li>✓ Take 1 photo at a time</li>
+						<li>✓ Slow processing</li>
+						<li>✓ For personal use only</li>
+						<li>✓ No free auto-generated photos</li>
+						<li>✓ Zoom out photos</li>
+					</ul>
+				</div>
+				
+				<div class="auto-generated">
+					<p>For each model you create, you get 48 free photos (total 48 free photos) auto-generated:</p>
+					<ul class="auto-features">
+						<li>✓ 8x free profile pics</li>
+						<li>✓ 8x free professional headshots</li>
+						<li>✓ 8x free dating app photos</li>
+						<li>✓ 8x free outfit ideas</li>
+						<li>✓ 8x free social media posts</li>
+					</ul>
+				</div>
+				
+				<button class="card-btn">Subscribe ></button>
+			</div>
+			
+			<!-- Pro Plan -->
+			<div class="pricing-card">
+				<div class="plan-badge">Pro</div>
+				<div class="card-price">
+					<span class="price-amount">$49</span>
+					<span class="price-period">/month</span>
+				</div>
+				<div class="billing-info">billed annually $349/~5 months free</div>
+				<p class="plan-description">Get more photos, more models, more features, and higher quality photos with our most popular plan.</p>
+				
+				<div class="core-features">
+					<div class="core-feature">Take 1,000 AI Photos (credits)</div>
+					<div class="core-feature">Create 3 AI Models per month</div>
+					<div class="core-feature">Flux™ model</div>
+				</div>
+				
+				<div class="features-section">
+					<h4>All Starter features, plus:</h4>
+					<ul class="card-features">
+						<li>✓ Medium quality photos</li>
+						<li>✓ Medium likeness</li>
+						<li>✓ Take up to 4 photos in parallel</li>
+						<li>✓ Import photos</li>
+						<li>✓ Write your own prompts</li>
+						<li>✓ Remix any photo</li>
+						<li>✓ Commercial use license</li>
+					</ul>
+				</div>
+				
+				<div class="auto-generated">
+					<p>For each model you create, you get 48 free photos (total 144 free photos) auto-generated:</p>
+					<ul class="auto-features">
+						<li>✓ 8x free profile pics</li>
+						<li>✓ 8x free professional headshots</li>
+						<li>✓ 8x free dating app photos</li>
+						<li>✓ 8x free outfit ideas</li>
+						<li>✓ 8x free social media posts</li>
+					</ul>
+				</div>
+				
+				<button class="card-btn">Subscribe ></button>
+			</div>
+			
+			<!-- Professional Plan -->
+			<div class="pricing-card popular">
+				<div class="plan-badge">PROFESSIONAL</div>
+				<div class="card-price">
+					<span class="price-amount">$49</span>
+					<span class="price-period">/month</span>
+				</div>
+				<div class="billing-info">billed annually $599/~6 months free</div>
+				<p class="plan-description">Get more photos, more models, more features, and higher quality photos with our most popular plan.</p>
+				
+				<div class="core-features">
+					<div class="core-feature">Take 3,000 AI Photos (credits)</div>
+					<div class="core-feature">Create 10 AI Models per month</div>
+					<div class="core-feature">Flux™ HD photorealistic model</div>
+				</div>
+				
+				<div class="features-section">
+					<h4>All Pro features, plus:</h4>
+					<ul class="card-features">
+						<li>✓ High quality photos</li>
+						<li>✓ High likeness</li>
+						<li>✓ Take up to 8 photos in parallel</li>
+						<li>✓ Edit photos</li>
+						<li>✓ Crop photos</li>
+						<li>✓ Zoom out photos</li>
+						<li>✓ Shoot AI videos</li>
+						<li>✓ Use LoRas from Civitai</li>
+						<li>✓ Relight photos</li>
+						<li>✓ Combine photos</li>
+						<li>✓ Use the magic upscaler</li>
+						<li>✓ Try on clothes (for Shopify)</li>
+						<li>✓ Early access to new features</li>
+					</ul>
+				</div>
+				
+				<div class="auto-generated">
+					<p>For each model you create, you get 48 free photos (total 480 free photos) auto-generated:</p>
+					<ul class="auto-features">
+						<li>✓ 8x free profile pics</li>
+						<li>✓ 8x free professional headshots</li>
+						<li>✓ 8x free dating app photos</li>
+						<li>✓ 8x free outfit ideas</li>
+						<li>✓ 8x free social media posts</li>
+					</ul>
+				</div>
+				
+				<button class="card-btn">Subscribe ></button>
+			</div>
+			
+			<!-- Ultra Plan -->
+			<div class="pricing-card">
+				<div class="plan-badge">Ultra</div>
+				<div class="card-price">
+					<span class="price-amount">$99</span>
+					<span class="price-period">/month</span>
+				</div>
+				<div class="billing-info">billed annually $1199/6+ months free</div>
+				<p class="plan-description">Get our highest level of access with ultra-fast processing and enterprise-level performance.</p>
+				
+				<div class="core-features">
+					<div class="core-feature">Take 10,000 AI Photos (credits)</div>
+					<div class="core-feature">Create 50 AI Models per month</div>
+					<div class="core-feature">Flux™ HD photorealistic model</div>
+				</div>
+				
+				<div class="features-section">
+					<h4>All Premium features, plus:</h4>
+					<ul class="card-features">
+						<li>✓ Ultra quality photos</li>
+						<li>✓ Ultra-high likeness</li>
+						<li>✓ Take up to 16 photos in parallel</li>
+						<li>✓ Unlimited photo storage</li>
+						<li>✓ Priority: faster response times</li>
+						<li>✓ Export your models</li>
+					</ul>
+				</div>
+				
+				<div class="auto-generated">
+					<p>For each model you create, you get 48 free photos (total 2,400 free photos) auto-generated:</p>
+					<ul class="auto-features">
+						<li>✓ 8x free profile pics</li>
+						<li>✓ 8x free professional headshots</li>
+						<li>✓ 8x free dating app photos</li>
+						<li>✓ 8x free outfit ideas</li>
+						<li>✓ 8x free social media posts</li>
+					</ul>
+				</div>
+				
+				<button class="card-btn">Subscribe ></button>
 			</div>
 		</div>
 	</div>

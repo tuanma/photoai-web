@@ -81,4 +81,20 @@ export class HomeComponent implements OnInit {
 	toggleFaq(idx: number) {
 		this.openedFaqIndex = this.openedFaqIndex === idx ? null : idx;
 	}
+
+	startTakingPhotos() {
+		this.router.navigate(['/tools']);
+	}
+
+	signInWithGoogle() {
+		// Implement Google sign-in logic
+		console.log('Google sign-in clicked');
+		this.router.navigate(['/login']);
+	}
+
+	isYearly: boolean = true;
+
+	setPricing(period: 'monthly' | 'yearly') {
+		this.isYearly = period === 'yearly';
+	}
 }
