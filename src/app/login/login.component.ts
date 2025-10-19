@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
 		});
 		console.log(localStorage.getItem('access_token'));
 		console.log('remove role');
-		localStorage.removeItem('EASYPAYMENT_ROLE')
+		localStorage.removeItem('PHOTOAI_ROLE')
 		// get return url from route parameters or default to '/'z
 		this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 		this.authService.authState.subscribe((user) => {

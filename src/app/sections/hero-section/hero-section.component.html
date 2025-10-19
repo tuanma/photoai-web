@@ -1,0 +1,91 @@
+<!-- Hero Section -->
+<section class="hero-section">
+	<div class="hero-container">
+		<div class="hero-content">
+			<h1 class="hero-title hero-title-gradient">
+				Get pro shots in seconds
+			</h1>
+			<p class="hero-subtitle">Edit photos, generate images, and design freely with Pixlr's powerful AI tools - right in your browser, on mobile, or desktop</p>
+			
+			<!-- Feature Grid -->
+			<div class="feature-grid">
+				<div class="feature-item" (click)="onNavigateToTool('upload-selfies')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/material-symbols_upload-rounded.png" alt="Upload">
+					</div>
+					<span class="feature-text">Upload your selfies</span>
+				</div>
+				<div class="feature-item" (click)="onNavigateToTool('ai-model')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/user-male-circle.png" alt="AI Model">
+						<span class="sparkles">✨</span>
+					</div>
+					<span class="feature-text">Create an AI model</span>
+				</div>
+				<div class="feature-item" (click)="onNavigateToTool('ai-influencer')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/streamline_ai-generate-portrait-image-spark.png" alt="AI Influencer">
+						<span class="sparkles">✨</span>
+					</div>
+					<span class="feature-text">Create a 100% AI influencer</span>
+				</div>
+				<div class="feature-item" (click)="onNavigateToTool('ai-photos')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/material-symbols_add-a-photo-outline-rounded.png" alt="AI Photos">
+						<span class="plus">+</span>
+					</div>
+					<span class="feature-text">Take AI photos</span>
+				</div>
+				<div class="feature-item" (click)="onNavigateToTool('ai-videos')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/mingcute_video-line.png" alt="AI Videos">
+					</div>
+					<span class="feature-text">Create AI videos</span>
+				</div>
+				<div class="feature-item" (click)="onNavigateToTool('photo-packs')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/streamline_ai-generate-portrait-image-spark.png" alt="Photo Packs">
+						<span class="plus">+</span>
+					</div>
+					<span class="feature-text">Run 100s of photo packs</span>
+				</div>
+				<div class="feature-item" (click)="onNavigateToTool('product-videos')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/mingcute_video-line.png" alt="Product Videos">
+					</div>
+					<span class="feature-text">Create product videos</span>
+				</div>
+				<div class="feature-item" (click)="onNavigateToTool('try-on')">
+					<div class="feature-icon">
+						<img src="assets/images/icon/material-symbols_add-a-photo-outline-rounded.png" alt="Try On">
+					</div>
+					<span class="feature-text">Try on clothes</span>
+				</div>
+			</div>
+			
+			<!-- CTA Section -->
+			<div class="hero-cta">
+				<div class="cta-card">
+					<div class="cta-content">
+						<input type="email" placeholder="Enter your email" class="cta-input">
+						<button class="cta-button" (click)="onStartTakingPhotos()">
+							Get started for free
+						</button>
+					</div>
+					<div class="cta-separator">
+						<div class="separator-line"></div>
+						<span class="separator-text">OR</span>
+						<div class="separator-line"></div>
+					</div>
+					<button class="google-signin-btn" (click)="onSignInWithGoogle()">
+						<img src="assets/images/google-icon.png" alt="Google" class="google-icon">
+						Continue with Google
+					</button>
+					<p class="login-prompt">
+						Already have an account? <a href="/login" class="login-link">Log in</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

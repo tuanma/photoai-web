@@ -1,0 +1,79 @@
+<!-- Frequently Asked Questions Section -->
+<section class="frequently-asked-questions-section">
+	<div class="faq-container">
+		<h2 class="faq-title hero-title-gradient">Frequently Asked Questions</h2>
+		<div class="faq-list">
+			<div class="faq-item" [class.active]="openedFaqIndex === 0" (click)="onToggleFaq(0)">
+				<div class="faq-question">
+					<span>Generate AI photos and videos of yourself</span>
+					<div class="faq-icon">
+						<i class="fas" [class.fa-chevron-down]="openedFaqIndex === 0" [class.fa-chevron-up]="openedFaqIndex !== 0"></i>
+					</div>
+				</div>
+				<div class="faq-answer" *ngIf="openedFaqIndex === 0">
+					<p>Creating realistic AI-generated photos of yourself used to require serious technical chops: GPUs, Python scripts, and days of setup. Now, thanks to platforms like Photo AI, it's as simple as uploading some selfies and in less than a minute later you have your own highly photorealistic AI photos indistinguishable from real life. Behind the scenes, it's powered by advanced machine learning, specifically a technique called DreamBooth, running on an AI model called Flux. Here's how it works and how you can do it both easily through Photo AI or manually on your own machine.</p>
+				</div>
+			</div>
+			
+			<div class="faq-item" [class.active]="openedFaqIndex === 1" (click)="onToggleFaq(1)">
+				<div class="faq-question">
+					<span>Create an AI model of yourself</span>
+					<div class="faq-icon">
+						<i class="fas" [class.fa-chevron-down]="openedFaqIndex === 1" [class.fa-chevron-up]="openedFaqIndex !== 1"></i>
+					</div>
+				</div>
+				<div class="faq-answer" *ngIf="openedFaqIndex === 1">
+					<p>Photo AI makes it incredibly easy to create your own AI model. Simply upload 8-12 high-quality selfies of yourself, and our advanced AI will train a personalized model in just minutes. Once trained, you can generate unlimited photos and videos of yourself in any style, pose, or setting you can imagine.</p>
+				</div>
+			</div>
+			
+			<div class="faq-item" [class.active]="openedFaqIndex === 2" (click)="onToggleFaq(2)">
+				<div class="faq-question">
+					<span>Generate photos & videos in any pose or place</span>
+					<div class="faq-icon">
+						<i class="fas" [class.fa-chevron-down]="openedFaqIndex === 2" [class.fa-chevron-up]="openedFaqIndex !== 2"></i>
+					</div>
+				</div>
+				<div class="faq-answer" *ngIf="openedFaqIndex === 2">
+					<p>With your trained AI model, you can generate photos and videos of yourself in any pose, location, or scenario. Whether you want professional headshots, vacation photos, or creative artistic images, our AI can create them all with just a simple text prompt.</p>
+				</div>
+			</div>
+			
+			<div class="faq-item" [class.active]="openedFaqIndex === 3" (click)="onToggleFaq(3)">
+				<div class="faq-question">
+					<span>Run 100s of photo packs</span>
+					<div class="faq-icon">
+						<i class="fas" [class.fa-chevron-down]="openedFaqIndex === 3" [class.fa-chevron-up]="openedFaqIndex !== 3"></i>
+					</div>
+				</div>
+				<div class="faq-answer" *ngIf="openedFaqIndex === 3">
+					<p>Photo AI offers over 145+ professionally designed photo packs that automatically generate themed photos of you. From professional headshots to vacation photos, dating profiles to corporate portraits, simply select a pack and let our AI do the work. All packs are included in your membership!</p>
+				</div>
+			</div>
+			
+			<div class="faq-item" [class.active]="openedFaqIndex === 4" (click)="onToggleFaq(4)">
+				<div class="faq-question">
+					<span>Upscale your AI photos and videos with one click in Photo AI</span>
+					<div class="faq-icon">
+						<i class="fas" [class.fa-chevron-down]="openedFaqIndex === 4" [class.fa-chevron-up]="openedFaqIndex !== 4"></i>
+					</div>
+				</div>
+				<div class="faq-answer" *ngIf="openedFaqIndex === 4">
+					<p>Enhance the resolution and quality of your AI-generated content with Photo AI's one-click upscaling feature. Our advanced algorithms intelligently increase image resolution while preserving details and reducing artifacts, giving you crisp, high-quality results perfect for any use case.</p>
+				</div>
+			</div>
+			
+			<div class="faq-item" [class.active]="openedFaqIndex === 5" (click)="onToggleFaq(5)">
+				<div class="faq-question">
+					<span>Create AI videos of yourself</span>
+					<div class="faq-icon">
+						<i class="fas" [class.fa-chevron-down]="openedFaqIndex === 5" [class.fa-chevron-up]="openedFaqIndex !== 5"></i>
+					</div>
+				</div>
+				<div class="faq-answer" *ngIf="openedFaqIndex === 5">
+					<p>Generate professional videos of yourself speaking, dancing, or performing any action with our advanced AI video technology. Simply provide a script or choose from our library of actions, and our AI will create realistic videos of you performing them.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

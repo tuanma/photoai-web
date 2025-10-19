@@ -1,0 +1,66 @@
+<!-- Photo Packs Tab Content -->
+<div class="photo-packs-content">
+  <!-- Search Bar -->
+  <div class="search-section">
+    <div class="search-container">
+      <input 
+        type="text" 
+        class="search-input" 
+        placeholder="Search photo packs by name..." 
+        [(ngModel)]="searchQuery"
+        (input)="onSearchChange()"
+      >
+    </div>
+  </div>
+
+  <!-- Photo Packs Grid -->
+  <div class="photo-packs-grid" *ngIf="!isLoading">
+    <div 
+      class="photo-pack-card" 
+      *ngFor="let pack of filteredPhotoPacks; trackBy: trackByPackId"
+      (click)="selectPhotoPack(pack)"
+    >
+      <div class="pack-header">
+        <div class="pack-icon">{{ pack.icon }}</div>
+        <div class="pack-info">
+          <h3 class="pack-title">{{ pack.title }}</h3>
+          <p class="pack-description">{{ pack.description }}</p>
+        </div>
+      </div>
+      
+      <div class="pack-stats">
+        <div class="stat">
+          <span class="stat-number">{{ pack.photoCount }}</span>
+          <span class="stat-label">photos</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">{{ pack.usageCount }}</span>
+          <span class="stat-label">used</span>
+        </div>
+      </div>
+      
+      <div class="pack-preview">
+        <div class="preview-images">
+          <div 
+            class="preview-image" 
+            *ngFor="let image of pack.previewImages; let i = index"
+            [style.background-image]="'url(' + image + ')'"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-state" *ngIf="isLoading">
+    <div class="loading-spinner"></div>
+    <p>Loading photo packs...</p>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="!isLoading && filteredPhotoPacks.length === 0">
+    <div class="empty-icon">📷</div>
+    <h3>No photo packs found</h3>
+    <p>Try adjusting your search or check back later for new packs.</p>
+  </div>
+</div>

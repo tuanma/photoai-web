@@ -1,0 +1,79 @@
+// Integrations Section
+.integrations-section {
+	background: #000000;
+	padding: 60px 0;
+}
+
+.integrations-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+.integrations-logos {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 40px;
+	flex-wrap: wrap;
+}
+
+.logo-item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0.7;
+	transition: opacity 0.3s ease;
+}
+
+.logo-item:hover {
+	opacity: 1;
+}
+
+.quickbooks-logo,
+.stripe-logo,
+.paypal-logo,
+.venmo-logo {
+	height: 40px;
+	width: auto;
+	filter: grayscale(100%) brightness(0.6);
+	transition: filter 0.3s ease;
+}
+
+.logo-item:hover .quickbooks-logo,
+.logo-item:hover .stripe-logo,
+.logo-item:hover .paypal-logo,
+.logo-item:hover .venmo-logo {
+	filter: grayscale(0%) brightness(1);
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+	.integrations-logos {
+		gap: 24px;
+	}
+	
+	.quickbooks-logo,
+	.stripe-logo,
+	.paypal-logo,
+	.venmo-logo {
+		height: 32px;
+	}
+}
+
+@media (max-width: 480px) {
+	.integrations-section {
+		padding: 40px 0;
+	}
+	
+	.integrations-logos {
+		gap: 16px;
+	}
+	
+	.quickbooks-logo,
+	.stripe-logo,
+	.paypal-logo,
+	.venmo-logo {
+		height: 28px;
+	}
+}

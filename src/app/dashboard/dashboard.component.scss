@@ -3,96 +3,15 @@
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   color: white;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding-top: 100px; // Account for fixed header (increased from 80px)
 }
 
-/* Top Navigation */
-.top-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-  .nav-left {
-    .logo h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin: 0;
-    }
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    .nav-btn {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-
-      &.upgrade-btn {
-        background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-        border: none;
-        font-weight: 600;
-
-        &:hover {
-          background: linear-gradient(45deg, #ff5252, #ff7979);
-          transform: translateY(-1px);
-        }
-      }
-    }
-
-    .credits-display {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-
-      .credits-icon {
-        font-size: 1.2rem;
-        color: #4ecdc4;
-      }
-
-      .credits-info {
-        .credits-current {
-          font-size: 1.1rem;
-          font-weight: 600;
-          color: #4ecdc4;
-        }
-
-        .credits-bonus {
-          font-size: 0.8rem;
-          color: #ffd93d;
-        }
-      }
-    }
-  }
-}
 
 /* Tab Navigation */
 .tab-nav {
   display: flex;
   padding: 0 2rem;
+  margin-top: 1rem; // Add some space from the top
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(0, 0, 0, 0.2);
 
@@ -168,7 +87,7 @@
     }
   }
 
-  .settings-menu {
+  .nav-menu {
     margin-bottom: 2rem;
 
     .menu-item {
@@ -185,6 +104,14 @@
         background: rgba(255, 255, 255, 0.05);
       }
 
+      &.expandable {
+        cursor: pointer;
+      }
+
+      &.expanded {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
       .menu-icon {
         font-size: 1.2rem;
         width: 24px;
@@ -197,7 +124,7 @@
       }
 
       .new-badge {
-        background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+        background: linear-gradient(135deg, #E879F9 0%, #A78BFA 100%);
         color: white;
         font-size: 0.7rem;
         padding: 0.2rem 0.5rem;
@@ -208,6 +135,47 @@
       .chevron {
         font-size: 1.2rem;
         color: rgba(255, 255, 255, 0.5);
+        transition: transform 0.3s ease;
+
+        &.rotated {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    .submenu {
+      margin-left: 2rem;
+      margin-top: 0.5rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      .submenu-content {
+        p {
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 0.9rem;
+          margin-bottom: 1rem;
+          line-height: 1.4;
+        }
+
+        .upgrade-model-btn {
+          background: linear-gradient(135deg, #F97316 0%, #E879F9 100%);
+          color: white;
+          border: none;
+          border-radius: 8px;
+          padding: 0.8rem 1.5rem;
+          font-size: 0.9rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          width: 100%;
+
+          &:hover {
+            background: linear-gradient(135deg, #EA580C 0%, #D946EF 100%);
+            transform: translateY(-1px);
+          }
+        }
       }
     }
   }

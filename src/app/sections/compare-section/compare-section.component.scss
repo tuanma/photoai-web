@@ -1,0 +1,163 @@
+// Compare Section
+.compare-section {
+	background: #000000;
+	padding: 100px 0;
+}
+
+.compare-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+.compare-header {
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.compare-title {
+	font-size: 3rem;
+	font-weight: 700;
+	margin-bottom: 20px;
+	line-height: 1.2;
+}
+
+.photo-ai-gradient {
+	background: linear-gradient(135deg, #34D399 0%, #8B5CF6 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.compare-description {
+	font-size: 1.2rem;
+	color: #9CA3AF;
+	line-height: 1.6;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.comparison-table {
+	background: #1a1a2e;
+	border: 1px solid #8B5CF6;
+	border-radius: 16px;
+	overflow: hidden;
+}
+
+.table-header {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr 1fr;
+	background: #2a2a3e;
+	border-bottom: 1px solid #8B5CF6;
+}
+
+.header-cell {
+	padding: 24px 20px;
+	font-weight: 600;
+	font-size: 1.1rem;
+	color: #FFFFFF;
+	text-align: center;
+	border-right: 1px solid #8B5CF6;
+}
+
+.header-cell:last-child {
+	border-right: none;
+}
+
+.feature-header {
+	text-align: left;
+}
+
+.table-row {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr 1fr;
+	border-bottom: 1px solid #374151;
+}
+
+.table-row:last-child {
+	border-bottom: none;
+}
+
+.feature-cell {
+	padding: 20px;
+	font-size: 1rem;
+	color: #E5E7EB;
+	border-right: 1px solid #374151;
+	display: flex;
+	align-items: center;
+}
+
+.check-cell {
+	padding: 20px;
+	text-align: center;
+	border-right: 1px solid #374151;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.check-cell:last-child {
+	border-right: none;
+}
+
+.checkmark {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.checkmark-yes {
+	color: #34D399;
+}
+
+.checkmark-no {
+	color: #EF4444;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+	.compare-section {
+		padding: 80px 0;
+	}
+	
+	.compare-title {
+		font-size: 2.5rem;
+	}
+	
+	.table-header,
+	.table-row {
+		grid-template-columns: 1fr;
+	}
+	
+	.header-cell,
+	.feature-cell,
+	.check-cell {
+		border-right: none;
+		border-bottom: 1px solid #374151;
+	}
+	
+	.feature-cell {
+		background: #2a2a3e;
+		font-weight: 600;
+	}
+}
+
+@media (max-width: 480px) {
+	.compare-section {
+		padding: 60px 0;
+	}
+	
+	.compare-title {
+		font-size: 2rem;
+	}
+	
+	.compare-description {
+		font-size: 1rem;
+	}
+	
+	.header-cell,
+	.feature-cell,
+	.check-cell {
+		padding: 16px;
+		font-size: 0.9rem;
+	}
+}

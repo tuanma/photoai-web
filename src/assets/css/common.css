@@ -3451,3 +3451,11 @@ body p {
 .-hidden,.-invisible {
     opacity: 0!important
 }
+
+/* Common gradient text class for section titles */
+.hero-title-gradient {
+    background: linear-gradient(135deg, #E879F9 0%, #A78BFA 25%, #60A5FA 50%, #34D399 75%, #FDE047 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}

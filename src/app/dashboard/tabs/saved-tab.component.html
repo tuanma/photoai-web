@@ -1,0 +1,48 @@
+<!-- Saved Tab Content -->
+<div class="saved-content">
+  <div class="saved-header">
+    <h2>Saved Items</h2>
+    <p class="saved-count">{{ savedItems.length }} items saved</p>
+  </div>
+
+  <div class="saved-grid">
+    <div 
+      class="saved-item" 
+      *ngFor="let item of savedItems; trackBy: trackByItemId"
+    >
+      <div class="item-thumbnail">
+        <img [src]="item.thumbnail" [alt]="item.title">
+        <div class="item-type">{{ item.type }}</div>
+      </div>
+      
+      <div class="item-info">
+        <h3 class="item-title">{{ item.title }}</h3>
+        <p class="item-date">Saved on {{ item.savedDate | date:'MMM dd, yyyy' }}</p>
+        
+        <div class="item-tags">
+          <span 
+            class="tag" 
+            *ngFor="let tag of item.tags"
+          >
+            {{ tag }}
+          </span>
+        </div>
+        
+        <div class="item-actions">
+          <button class="action-btn download" (click)="downloadItem(item)">
+            Download
+          </button>
+          <button class="action-btn remove" (click)="removeFromSaved(item)">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="savedItems.length === 0">
+    <div class="empty-icon">💾</div>
+    <h3>No saved items</h3>
+    <p>Items you save will appear here for easy access.</p>
+  </div>
+</div>

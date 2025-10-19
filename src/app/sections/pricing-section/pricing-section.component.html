@@ -1,0 +1,139 @@
+<!-- Choose Your Plan Section -->
+<section class="choose-plan-section">
+	<div class="choose-plan-container">
+		<div class="choose-plan-header">
+			<h2 class="choose-plan-title hero-title-gradient">Choose Your Plan</h2>
+			<p class="choose-plan-description">Whether you want to get organized, keep your personal life on track, or boost workplace productivity, Photo AI has the right plan for you.</p>
+		</div>
+		
+		<div class="pricing-toggle">
+			<button 
+				class="toggle-btn" 
+				[class.active]="!isYearly" 
+				(click)="onSetPricing('monthly')">
+				Monthly
+			</button>
+			<button 
+				class="toggle-btn" 
+				[class.active]="isYearly" 
+				(click)="onSetPricing('yearly')">
+				Yearly
+			</button>
+		</div>
+		
+		<div class="pricing-cards">
+			<div class="pricing-card">
+				<div class="plan-badge">Starter</div>
+				<div class="card-price">
+					<span class="price-amount">$9</span>
+					<span class="price-period">/month</span>
+				</div>
+				<div class="billing-info">Billed monthly</div>
+				<p class="plan-description">Perfect for individuals getting started with AI photos</p>
+				
+				<div class="core-features">
+					<h4>Core Features</h4>
+					<ul>
+						<li>100 AI photos per month</li>
+						<li>Basic photo editing tools</li>
+						<li>Standard resolution (1024x1024)</li>
+						<li>Email support</li>
+					</ul>
+				</div>
+				
+				<div class="auto-generated">
+					<h4>Auto-generated photos</h4>
+					<p>100 photos • 1 run</p>
+				</div>
+				
+				<button class="card-btn">Get Started</button>
+			</div>
+			
+			<div class="pricing-card popular">
+				<div class="plan-badge">Pro</div>
+				<div class="card-price">
+					<span class="price-amount">$19</span>
+					<span class="price-period">/month</span>
+				</div>
+				<div class="billing-info">Billed monthly</div>
+				<p class="plan-description">Best for professionals and content creators</p>
+				
+				<div class="core-features">
+					<h4>Core Features</h4>
+					<ul>
+						<li>500 AI photos per month</li>
+						<li>Advanced photo editing tools</li>
+						<li>High resolution (2048x2048)</li>
+						<li>Priority support</li>
+						<li>Video generation</li>
+					</ul>
+				</div>
+				
+				<div class="auto-generated">
+					<h4>Auto-generated photos</h4>
+					<p>500 photos • 5 runs</p>
+				</div>
+				
+				<button class="card-btn">Get Started</button>
+			</div>
+			
+			<div class="pricing-card">
+				<div class="plan-badge">Professional</div>
+				<div class="card-price">
+					<span class="price-amount">$39</span>
+					<span class="price-period">/month</span>
+				</div>
+				<div class="billing-info">Billed monthly</div>
+				<p class="plan-description">For teams and businesses with high volume needs</p>
+				
+				<div class="core-features">
+					<h4>Core Features</h4>
+					<ul>
+						<li>2000 AI photos per month</li>
+						<li>All editing tools</li>
+						<li>Ultra high resolution (4096x4096)</li>
+						<li>24/7 support</li>
+						<li>Batch processing</li>
+						<li>API access</li>
+					</ul>
+				</div>
+				
+				<div class="auto-generated">
+					<h4>Auto-generated photos</h4>
+					<p>2000 photos • 20 runs</p>
+				</div>
+				
+				<button class="card-btn">Get Started</button>
+			</div>
+			
+			<div class="pricing-card">
+				<div class="plan-badge">Ultra</div>
+				<div class="card-price">
+					<span class="price-amount">$79</span>
+					<span class="price-period">/month</span>
+				</div>
+				<div class="billing-info">Billed monthly</div>
+				<p class="plan-description">For enterprises with unlimited needs</p>
+				
+				<div class="core-features">
+					<h4>Core Features</h4>
+					<ul>
+						<li>Unlimited AI photos</li>
+						<li>All features included</li>
+						<li>Maximum resolution (8192x8192)</li>
+						<li>Dedicated support</li>
+						<li>Custom integrations</li>
+						<li>White-label options</li>
+					</ul>
+				</div>
+				
+				<div class="auto-generated">
+					<h4>Auto-generated photos</h4>
+					<p>Unlimited photos • Unlimited runs</p>
+				</div>
+				
+				<button class="card-btn">Get Started</button>
+			</div>
+		</div>
+	</div>
+</section>

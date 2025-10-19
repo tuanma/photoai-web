@@ -1,0 +1,60 @@
+<!-- Deleted Tab Content -->
+<div class="deleted-content">
+  <div class="deleted-header">
+    <h2>Deleted Items</h2>
+    <div class="header-actions">
+      <p class="deleted-count">{{ deletedItems.length }} items deleted</p>
+      <button 
+        class="clear-all-btn" 
+        (click)="clearAll()"
+        [disabled]="deletedItems.length === 0"
+      >
+        Clear All
+      </button>
+    </div>
+  </div>
+
+  <div class="deleted-grid">
+    <div 
+      class="deleted-item" 
+      *ngFor="let item of deletedItems; trackBy: trackByItemId"
+    >
+      <div class="item-thumbnail">
+        <img [src]="item.thumbnail" [alt]="item.title">
+        <div class="item-type">{{ item.type }}</div>
+        <div class="deleted-overlay">
+          <div class="deleted-icon">🗑️</div>
+        </div>
+      </div>
+      
+      <div class="item-info">
+        <h3 class="item-title">{{ item.title }}</h3>
+        <p class="item-date">Deleted on {{ item.deletedDate | date:'MMM dd, yyyy' }}</p>
+        
+        <div class="item-tags">
+          <span 
+            class="tag" 
+            *ngFor="let tag of item.tags"
+          >
+            {{ tag }}
+          </span>
+        </div>
+        
+        <div class="item-actions">
+          <button class="action-btn restore" (click)="restoreItem(item)">
+            Restore
+          </button>
+          <button class="action-btn delete" (click)="permanentlyDelete(item)">
+            Delete Forever
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="deletedItems.length === 0">
+    <div class="empty-icon">🗑️</div>
+    <h3>No deleted items</h3>
+    <p>Deleted items will appear here for 30 days before being permanently removed.</p>
+  </div>
+</div>

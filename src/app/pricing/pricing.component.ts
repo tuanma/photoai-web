@@ -6,6 +6,7 @@ import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { PaymentService, PaymentRequest, PaymentResponse } from '../_services';
 import { AuthenticationService } from '../_services';
 import { config } from '../../environments/environment';
+import { SectionsModule } from '../sections/sections.module';
 
 interface PricingPlan {
   id: string;
@@ -24,7 +25,7 @@ interface PricingPlan {
   templateUrl: './pricing.component.html',
   styleUrls: ['./pricing.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, SectionsModule]
 })
 export class PricingComponent implements OnInit {
   
@@ -314,5 +315,16 @@ export class PricingComponent implements OnInit {
 
   private isMobileDevice(): boolean {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+
+  // Methods for section components
+  setPricing(period: 'monthly' | 'yearly'): void {
+    this.billingCycle = period;
+    this.initializePlans();
+  }
+
+  toggleFaq(idx: number): void {
+    // Handle FAQ toggle if needed
+    console.log('FAQ toggled:', idx);
   }
 }

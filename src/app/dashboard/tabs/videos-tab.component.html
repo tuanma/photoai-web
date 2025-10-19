@@ -1,0 +1,29 @@
+<!-- Videos Tab Content -->
+<div class="videos-content">
+  <div class="videos-header">
+    <h2>AI Video Generation</h2>
+    <button class="create-video-btn" (click)="createVideo()">
+      Create New Video
+    </button>
+  </div>
+
+  <div class="videos-grid">
+    <div 
+      class="video-card" 
+      *ngFor="let video of videos; trackBy: trackByVideoId"
+      (click)="selectVideo(video)"
+    >
+      <div class="video-thumbnail">
+        <img [src]="video.thumbnail" [alt]="video.title">
+        <div class="video-duration">{{ video.duration }}</div>
+        <div class="video-status" [class]="'status-' + video.status">
+          {{ video.status }}
+        </div>
+      </div>
+      
+      <div class="video-info">
+        <h3 class="video-title">{{ video.title }}</h3>
+      </div>
+    </div>
+  </div>
+</div>

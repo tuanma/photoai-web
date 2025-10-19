@@ -15,114 +15,15 @@
     </div>
   </div>
 
-  <!-- Header -->
-  <div class="pricing-header">
-    <div class="container">
-      <div class="header-content">
-        <h1>Choose Your Plan</h1>
-        <p>Select the perfect plan for your photo editing needs</p>
-        
-        <!-- Billing Toggle -->
-        <div class="billing-toggle">
-          <span [class.active]="billingCycle === 'monthly'">Monthly</span>
-          <label class="toggle-switch">
-            <input type="checkbox" 
-                   [checked]="billingCycle === 'yearly'"
-                   (change)="toggleBilling()">
-            <span class="slider"></span>
-          </label>
-          <span [class.active]="billingCycle === 'yearly'">
-            Yearly 
-            <span class="savings-badge">Save {{ getSavingsPercentage() }}%</span>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Use the new pricing section component -->
+  <app-pricing-section 
+    (setPricing)="setPricing($event)">
+  </app-pricing-section>
 
-  <!-- Pricing Cards -->
-  <div class="container">
-    <div class="pricing-grid">
-      <div *ngFor="let plan of plans" 
-           class="pricing-card"
-           [class.popular]="plan.isPopular"
-           [class.enterprise]="plan.id === 'enterprise'">
-        
-        <!-- Popular Badge -->
-        <div *ngIf="plan.isPopular" class="popular-badge">
-          Most Popular
-        </div>
-        
-        <!-- Plan Header -->
-        <div class="plan-header">
-          <h3>{{ plan.name }}</h3>
-          <div class="plan-price">
-            <span class="currency">$</span>
-            <span class="amount">{{ plan.price }}</span>
-            <span class="period">/{{ plan.period }}</span>
-          </div>
-          <p class="plan-description">{{ plan.description }}</p>
-        </div>
-        
-        <!-- Plan Features -->
-        <div class="plan-features">
-          <ul>
-            <li *ngFor="let feature of plan.features">
-              <i class="fas fa-check"></i>
-              {{ feature }}
-            </li>
-          </ul>
-        </div>
-        
-        <!-- Plan Button -->
-        <div class="plan-action">
-          <button [class]="plan.buttonClass" 
-                  (click)="selectPlan(plan.id)"
-                  [disabled]="isProcessingPayment">
-            <span *ngIf="isProcessingPayment">Processing...</span>
-            <span *ngIf="!isProcessingPayment">{{ plan.buttonText }}</span>
-          </button>
-          <!-- Error message for this plan -->
-          <div *ngIf="paymentError && isProcessingPayment" class="error-message">
-            {{ paymentError }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FAQ Section -->
-  <div class="pricing-faq">
-    <div class="container">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-grid">
-        <div class="faq-item">
-          <h4>Can I change plans anytime?</h4>
-          <p>Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.</p>
-        </div>
-        <div class="faq-item">
-          <h4>What payment methods do you accept?</h4>
-          <p>We accept all major credit cards, PayPal, and bank transfers for Enterprise plans.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Is there a free trial?</h4>
-          <p>Yes, all paid plans come with a 14-day free trial. No credit card required.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Can I cancel anytime?</h4>
-          <p>Absolutely. You can cancel your subscription at any time with no cancellation fees.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Do you offer refunds?</h4>
-          <p>Yes, we offer a 30-day money-back guarantee for all paid plans.</p>
-        </div>
-        <div class="faq-item">
-          <h4>What about team discounts?</h4>
-          <p>Enterprise plans include volume discounts. Contact our sales team for custom pricing.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Use the new FAQ section component -->
+  <app-faq-section 
+    (toggleFaq)="toggleFaq($event)">
+  </app-faq-section>
 
   <!-- CTA Section -->
   <div class="pricing-cta">

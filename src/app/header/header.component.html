@@ -1,4 +1,5 @@
-<header class="app-header">
+<!-- Public Header (when user is not logged in) -->
+<header *ngIf="!isLoggedIn" class="app-header">
 	<div class="header-container">
 		<div class="logo">
 			<a routerLink="/home">
@@ -7,13 +8,7 @@
 		</div>
 		<nav class="nav-menu">
 			<a routerLink="/pricing" routerLinkActive="active">Pricing</a>
-			<!-- Show login link only when user is not logged in -->
-			<a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">Log in</a>
-			<!-- Show user menu when user is logged in -->
-			<div *ngIf="isLoggedIn" class="user-menu">
-				<span class="user-name">{{ currentUser?.name || currentUser?.user_name || 'User' }}</span>
-				<button class="logout-button" (click)="logout()">Logout</button>
-			</div>
+			<a routerLink="/login" routerLinkActive="active">Log in</a>
 			<a routerLink="/billing" routerLinkActive="active">Billing</a>
 			<a routerLink="/gallery" routerLinkActive="active">Gallery</a>
 			<a routerLink="/ideas" routerLinkActive="active">Ideas</a>
@@ -22,5 +17,92 @@
 				<span class="cta-arrow">→</span>
 			</button>
 		</nav>
+	</div>
+</header>
+
+<!-- Dashboard Header (when user is logged in) -->
+<header *ngIf="isLoggedIn" class="dashboard-header">
+	<div class="top-nav">
+		<div class="nav-left">
+			<div class="logo">
+				<a routerLink="/home">
+					<img src="assets/images/Logo-ai.png" alt="PhotoAI Logo" class="logo-image">
+				</a>
+			</div>
+		</div>
+		
+		<div class="nav-right">
+			<button class="nav-btn">Select</button>
+			<button class="nav-btn" (click)="buyCredits()">Buy more credits</button>
+			<button class="nav-btn upgrade-btn" (click)="upgrade()">Upgrade</button>
+			
+			<div class="credits-display" (click)="toggleCreditsDropdown($event)">
+				<div class="credits-icon">⚡</div>
+				<div class="credits-info">
+					<div class="credits-current">{{ currentCredits }}</div>
+					<div class="credits-bonus">+{{ bonusCredits }}</div>
+				</div>
+			</div>
+			
+			<!-- Credits Dropdown Menu -->
+			<div class="credits-dropdown" *ngIf="showCreditsDropdown" clickOutside (clickOutside)="closeCreditsDropdown()" (click)="$event.stopPropagation()">
+				<div class="dropdown-item" (click)="buyCredits()" [class.loading]="isLoading">
+					<div class="dropdown-icon">⚡</div>
+					<span>Buy credits</span>
+					<div class="loading-spinner" *ngIf="isLoading"></div>
+				</div>
+				<div class="dropdown-item" (click)="upgrade()" [class.loading]="isLoading">
+					<div class="dropdown-icon">🚀</div>
+					<span>Upgrade to a higher plan</span>
+					<div class="loading-spinner" *ngIf="isLoading"></div>
+				</div>
+				<div class="dropdown-item" (click)="referFriends()" [class.loading]="isLoading">
+					<div class="dropdown-icon">🎁</div>
+					<span>Refer friends, get 1000 credits</span>
+					<div class="loading-spinner" *ngIf="isLoading"></div>
+				</div>
+				<div class="dropdown-item" (click)="createAiModel()" [class.loading]="isLoading">
+					<div class="dropdown-icon">✨</div>
+					<span>Create new AI model</span>
+					<div class="loading-spinner" *ngIf="isLoading"></div>
+				</div>
+				<div class="dropdown-item" (click)="ideasAndBugs()" [class.loading]="isLoading">
+					<div class="dropdown-icon">💡</div>
+					<span>Ideas + bugs</span>
+					<div class="loading-spinner" *ngIf="isLoading"></div>
+				</div>
+				<div class="dropdown-item" (click)="changelog()" [class.loading]="isLoading">
+					<div class="dropdown-icon">🚀</div>
+					<span>Changelog</span>
+					<div class="loading-spinner" *ngIf="isLoading"></div>
+				</div>
+				<div class="dropdown-item" (click)="merch()" [class.loading]="isLoading">
+					<div class="dropdown-icon">🛍️</div>
+					<span>Merch</span>
+					<div class="loading-spinner" *ngIf="isLoading"></div>
+				</div>
+				<div class="dropdown-item" (click)="helpAndFaq()" [class.loading]="isLoading">
+					<div class="dropdown-icon">📄</div>
+					<span>Help & FAQ</span>
+					<div class="loading-spinner" *ngIf="isLoading"></div>
+				</div>
+				<div class="dropdown-item" (click)="tosAndPrivacy()" [class.loading]="isLoading">
+					<div class="dropdown-icon">⚖️</div>
+					<span>TOS & Privacy</span>
+					<div class="loading-spinner" *ngIf="isLoading"></div>
+				</div>
+				<div class="dropdown-item" (click)="billing()" [class.loading]="isLoading">
+					<div class="dropdown-icon">💳</div>
+					<span>Billing</span>
+					<div class="loading-spinner" *ngIf="isLoading"></div>
+				</div>
+				<div class="dropdown-item" (click)="logout()" [class.loading]="isLoading">
+					<div class="dropdown-icon">🚪</div>
+					<span>Log out</span>
+					<div class="loading-spinner" *ngIf="isLoading"></div>
+				</div>
+			</div>
+			
+		</div>
 	</div>
 </header>

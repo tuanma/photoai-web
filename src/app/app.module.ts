@@ -33,6 +33,7 @@ import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.com
 // Import routing module
 import { AppRoutingModule } from './app.routing';
 import { SharedComponentModule } from './_shared/shared.module';
+import { SectionsModule } from './sections/sections.module';
 
 // Import 3rd party components
 import { AutofocusDirective } from './_helpers/autofocus.directive';
@@ -49,7 +50,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from '@abacritt/angularx-s
 
 const components = [
 	DefaultLayoutComponent,
-	HeaderComponent,
+	// HeaderComponent, // Now standalone
 	FooterComponent,
 	HomeComponent,
 	NavMenuComponent,
@@ -77,6 +78,8 @@ const entryComponents = [
 		QrCodeGeneratorModule,
 		SocialLoginModule,
 		GoogleSigninButtonModule,
+		SectionsModule,
+		HeaderComponent, // Import standalone component
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	declarations: [

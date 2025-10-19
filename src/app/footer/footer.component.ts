@@ -40,6 +40,10 @@ export class FooterComponent {
 	navigateToTerms() {
 		window.open('https://scanqrread.com/terms', '_blank');
 	}
+	startTakingPhotos() {
+		this.router.navigate(['/take-photos']);
+	}
+
 	
 
 }

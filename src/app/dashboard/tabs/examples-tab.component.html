@@ -1,0 +1,71 @@
+<!-- Examples Tab Content -->
+<div class="examples-content">
+  <!-- Category Filter -->
+  <div class="category-filter">
+    <button 
+      class="filter-btn" 
+      [class.active]="selectedCategory === 'all'"
+      (click)="filterByCategory('all')"
+    >
+      All
+    </button>
+    <button 
+      class="filter-btn" 
+      [class.active]="selectedCategory === 'business'"
+      (click)="filterByCategory('business')"
+    >
+      Business
+    </button>
+    <button 
+      class="filter-btn" 
+      [class.active]="selectedCategory === 'creative'"
+      (click)="filterByCategory('creative')"
+    >
+      Creative
+    </button>
+    <button 
+      class="filter-btn" 
+      [class.active]="selectedCategory === 'lifestyle'"
+      (click)="filterByCategory('lifestyle')"
+    >
+      Lifestyle
+    </button>
+    <button 
+      class="filter-btn" 
+      [class.active]="selectedCategory === 'fashion'"
+      (click)="filterByCategory('fashion')"
+    >
+      Fashion
+    </button>
+  </div>
+
+  <!-- Examples Grid -->
+  <div class="examples-grid">
+    <div 
+      class="example-card" 
+      *ngFor="let example of filteredExamples; trackBy: trackByExampleId"
+      (click)="selectExample(example)"
+    >
+      <div class="example-image">
+        <img [src]="example.image" [alt]="example.title">
+        <div class="example-overlay">
+          <div class="example-category">{{ example.category }}</div>
+        </div>
+      </div>
+      
+      <div class="example-info">
+        <h3 class="example-title">{{ example.title }}</h3>
+        <p class="example-description">{{ example.description }}</p>
+        
+        <div class="example-tags">
+          <span 
+            class="tag" 
+            *ngFor="let tag of example.tags"
+          >
+            {{ tag }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

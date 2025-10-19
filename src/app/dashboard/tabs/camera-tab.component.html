@@ -1,0 +1,102 @@
+<!-- Camera Tab Content -->
+<div class="camera-content">
+  <div class="camera-container">
+    <!-- Camera Preview Area -->
+    <div class="camera-preview">
+      <div class="camera-placeholder">
+        <div class="camera-icon">📷</div>
+        <h3>Camera Ready</h3>
+        <p>Click "Start Camera" to begin taking photos</p>
+        <button class="start-camera-btn" (click)="startCamera()">
+          Start Camera
+        </button>
+      </div>
+    </div>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel">
+      <h3>Photo Settings</h3>
+      
+      <!-- Model Selection -->
+      <div class="setting-group">
+        <label class="setting-label">AI Model</label>
+        <select 
+          class="setting-select" 
+          [(ngModel)]="selectedModel"
+        >
+          <option 
+            *ngFor="let model of models" 
+            [value]="model.name"
+          >
+            {{ model.name }} - {{ model.description }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Style Selection -->
+      <div class="setting-group">
+        <label class="setting-label">Style</label>
+        <select 
+          class="setting-select" 
+          [(ngModel)]="selectedStyle"
+        >
+          <option 
+            *ngFor="let style of styles" 
+            [value]="style.name"
+          >
+            {{ style.name }} - {{ style.description }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Photo Count -->
+      <div class="setting-group">
+        <label class="setting-label">Number of Photos</label>
+        <div class="photo-count-controls">
+          <button 
+            class="count-btn" 
+            (click)="decreasePhotoCount()"
+            [disabled]="photoCount <= 1"
+          >
+            -
+          </button>
+          <span class="count-display">{{ photoCount }}</span>
+          <button 
+            class="count-btn" 
+            (click)="increasePhotoCount()"
+            [disabled]="photoCount >= 10"
+          >
+            +
+          </button>
+        </div>
+      </div>
+
+      <!-- Hyper Realism Toggle -->
+      <div class="setting-group">
+        <label class="setting-label">Hyper Realism</label>
+        <div class="toggle-container">
+          <label class="toggle-switch">
+            <input 
+              type="checkbox" 
+              [(ngModel)]="hyperRealismEnabled"
+              (change)="toggleHyperRealism()"
+            >
+            <span class="toggle-slider"></span>
+          </label>
+          <span class="toggle-label">
+            {{ hyperRealismEnabled ? 'Enabled' : 'Disabled' }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Generate Button -->
+      <button 
+        class="generate-btn" 
+        (click)="generatePhotos()"
+        [disabled]="photoCount < 1"
+      >
+        Generate {{ photoCount }} Photo{{ photoCount > 1 ? 's' : '' }}
+      </button>
+    </div>
+  </div>
+</div>

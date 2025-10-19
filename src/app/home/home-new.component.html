@@ -1,0 +1,25 @@
+<app-hero-section 
+	(navigateToTool)="navigateToTool($event)"
+	(startTakingPhotos)="startTakingPhotos()"
+	(signInWithGoogle)="signInWithGoogle()">
+</app-hero-section>
+
+<app-integrations-section></app-integrations-section>
+
+<app-gallery-section></app-gallery-section>
+
+<app-trusted-section></app-trusted-section>
+
+<app-compare-section></app-compare-section>
+
+<app-ai-models-section></app-ai-models-section>
+
+<app-photo-packs-section></app-photo-packs-section>
+
+<app-pricing-section 
+	(setPricing)="setPricing($event)">
+</app-pricing-section>
+
+<app-faq-section 
+	(toggleFaq)="toggleFaq($event)">
+</app-faq-section>

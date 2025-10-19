@@ -1,83 +1,116 @@
-.app-footer {
-	background: #f8f9fa;
-	border-top: 1px solid #e9ecef;
-	margin-top: 3rem;
+
+// Footer Section
+.footer-section {
+	background: #000000;
+	padding: 80px 0 40px 0;
 }
 
 .footer-container {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 2rem;
+	padding: 0 2rem;
 }
 
 .footer-content {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 2rem;
-	margin-bottom: 2rem;
+	grid-template-columns: 2fr 1fr 1.5fr 1fr 1.5fr;
+	gap: 40px;
 }
 
-.footer-section h4 {
-	color: #333;
-	margin-bottom: 1rem;
+.footer-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.branding-column {
+	gap: 20px;
+}
+
+.footer-logo {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.logo-icon {
+	font-size: 1.5rem;
+	color: white;
+}
+
+.logo-text {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: white;
+}
+
+.footer-info {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.footer-info p {
+	color: #9CA3AF;
+	font-size: 0.9rem;
+	line-height: 1.4;
+	margin: 0;
+}
+
+.footer-title {
 	font-size: 1.1rem;
+	font-weight: 600;
+	color: white;
+	margin-bottom: 20px;
 }
 
-.footer-section p {
-	color: #666;
-	line-height: 1.6;
-}
-
-.footer-section ul {
+.footer-links {
 	list-style: none;
 	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
 }
 
-.footer-section ul li {
-	margin-bottom: 0.5rem;
+.footer-links li {
+	margin: 0;
 }
 
-.footer-section ul li a {
-	color: #666;
+.footer-links a {
+	color: #9CA3AF;
 	text-decoration: none;
+	font-size: 0.9rem;
 	transition: color 0.3s ease;
 }
 
-.footer-section ul li a:hover {
-	color: #3E56B2;
+.footer-links a:hover {
+	color: white;
 }
 
-.footer-bottom {
-	border-top: 1px solid #e9ecef;
-	padding-top: 1rem;
-	text-align: center;
-	color: #666;
+.cta-column {
+	gap: 16px;
 }
 
-.footer-bot ul {
-    display: inline-flex;
-}
-.footer-bot ul li {
-	padding-left: 20px;
-}
-
-.footer-logo-container a {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-	text-decoration: none;
-	margin-bottom: 0.5rem;
+.cta-description {
+	color: #9CA3AF;
+	font-size: 0.9rem;
+	line-height: 1.4;
+	margin: 0;
 }
 
-.footer-logo-image {
-	height: 56px;
-	width: auto;
-	display: block;
-}
-
-.footer-logo-text {
-	font-size: 1.1rem;
+.cta-button {
+	background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+	color: white;
+	border: none;
+	padding: 12px 24px;
+	font-size: 1rem;
 	font-weight: 600;
-	color: #3E56B2;
-	white-space: nowrap;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+	width: fit-content;
+}
+
+.cta-button:hover {
+	transform: translateY(-2px);
 }
