@@ -15,5 +15,5 @@ export const config = {
 }
 
 export const api = {
-	baseUrlApi: config.apiGateway + '/' + config.version
+	baseUrlApi: config.apiGateway + '/photoai-api/' + config.version
 }

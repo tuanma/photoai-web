@@ -18,35 +18,35 @@
     <div 
       class="photo-pack-card" 
       *ngFor="let pack of filteredPhotoPacks; trackBy: trackByPackId"
+      [class.selected]="selectedPackId === pack.id"
       (click)="selectPhotoPack(pack)"
     >
+      <!-- Preview Images at top -->
+      <div class="pack-preview-images">
+        <div 
+          class="preview-image" 
+          *ngFor="let image of getPreviewImages(pack); let i = index; trackBy: trackByIndex"
+          [style.background-image]="'url(' + image + ')'"
+        ></div>
+      </div>
+
+      <!-- Icon and Title -->
       <div class="pack-header">
-        <div class="pack-icon">{{ pack.icon }}</div>
-        <div class="pack-info">
-          <h3 class="pack-title">{{ pack.title }}</h3>
-          <p class="pack-description">{{ pack.description }}</p>
-        </div>
+        <div class="pack-icon">{{ pack.emoji || pack.icon || '📷' }}</div>
+        <h3 class="pack-title">{{ pack.name || pack.title }}</h3>
       </div>
+
+      <!-- Description -->
+      <p class="pack-description">{{ pack.description }}</p>
       
-      <div class="pack-stats">
-        <div class="stat">
-          <span class="stat-number">{{ pack.photoCount }}</span>
-          <span class="stat-label">photos</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">{{ pack.usageCount }}</span>
-          <span class="stat-label">used</span>
-        </div>
-      </div>
-      
-      <div class="pack-preview">
-        <div class="preview-images">
-          <div 
-            class="preview-image" 
-            *ngFor="let image of pack.previewImages; let i = index"
-            [style.background-image]="'url(' + image + ')'"
-          ></div>
-        </div>
+      <!-- Stats Pills -->
+      <div class="pack-stats-pills">
+        <span class="stat-pill stat-pill-green">
+          {{ pack.photosPerPrompt || pack.photoCount || 0 }} PHOTOS
+        </span>
+        <span class="stat-pill stat-pill-orange">
+          {{ pack.timesUsed || pack.usageCount || 0 }}X RAN THIS WEEK
+        </span>
       </div>
     </div>
   </div>
