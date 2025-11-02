@@ -1,102 +1,63 @@
 <!-- Camera Tab Content -->
 <div class="camera-content">
-  <div class="camera-container">
-    <!-- Camera Preview Area -->
-    <div class="camera-preview">
-      <div class="camera-placeholder">
-        <div class="camera-icon">📷</div>
-        <h3>Camera Ready</h3>
-        <p>Click "Start Camera" to begin taking photos</p>
-        <button class="start-camera-btn" (click)="startCamera()">
-          Start Camera
-        </button>
-      </div>
-    </div>
-
-    <!-- Settings Panel -->
-    <div class="settings-panel">
-      <h3>Photo Settings</h3>
-      
-      <!-- Model Selection -->
-      <div class="setting-group">
-        <label class="setting-label">AI Model</label>
-        <select 
-          class="setting-select" 
-          [(ngModel)]="selectedModel"
-        >
-          <option 
-            *ngFor="let model of models" 
-            [value]="model.name"
-          >
-            {{ model.name }} - {{ model.description }}
-          </option>
-        </select>
-      </div>
-
-      <!-- Style Selection -->
-      <div class="setting-group">
-        <label class="setting-label">Style</label>
-        <select 
-          class="setting-select" 
-          [(ngModel)]="selectedStyle"
-        >
-          <option 
-            *ngFor="let style of styles" 
-            [value]="style.name"
-          >
-            {{ style.name }} - {{ style.description }}
-          </option>
-        </select>
-      </div>
-
-      <!-- Photo Count -->
-      <div class="setting-group">
-        <label class="setting-label">Number of Photos</label>
-        <div class="photo-count-controls">
-          <button 
-            class="count-btn" 
-            (click)="decreasePhotoCount()"
-            [disabled]="photoCount <= 1"
-          >
-            -
-          </button>
-          <span class="count-display">{{ photoCount }}</span>
-          <button 
-            class="count-btn" 
-            (click)="increasePhotoCount()"
-            [disabled]="photoCount >= 10"
-          >
-            +
-          </button>
-        </div>
-      </div>
-
-      <!-- Hyper Realism Toggle -->
-      <div class="setting-group">
-        <label class="setting-label">Hyper Realism</label>
-        <div class="toggle-container">
-          <label class="toggle-switch">
-            <input 
-              type="checkbox" 
-              [(ngModel)]="hyperRealismEnabled"
-              (change)="toggleHyperRealism()"
-            >
-            <span class="toggle-slider"></span>
-          </label>
-          <span class="toggle-label">
-            {{ hyperRealismEnabled ? 'Enabled' : 'Disabled' }}
-          </span>
-        </div>
-      </div>
-
-      <!-- Generate Button -->
-      <button 
-        class="generate-btn" 
-        (click)="generatePhotos()"
-        [disabled]="photoCount < 1"
+  <!-- Search Bar -->
+  <div class="search-section">
+    <div class="search-container">
+      <input 
+        type="text" 
+        class="search-input" 
+        placeholder="Search your photos by prompt..." 
+        [(ngModel)]="searchQuery"
+        (input)="onSearchChange()"
       >
-        Generate {{ photoCount }} Photo{{ photoCount > 1 ? 's' : '' }}
-      </button>
     </div>
+  </div>
+
+  <!-- Cameras Grid -->
+  <div class="cameras-grid" *ngIf="!isLoading">
+    <div 
+      class="camera-card" 
+      *ngFor="let camera of filteredCameras; trackBy: trackByCameraId"
+      (click)="selectCamera(camera)"
+    >
+      <div class="camera-image-container">
+        <img 
+          [src]="getImageUrl(camera)" 
+          [alt]="getDisplayName(camera)"
+          (error)="$event.target.src='/assets/images/placeholder.svg'"
+          class="camera-image"
+        />
+        
+        <!-- Label (FLUX or HYPER REALISM) -->
+        <div 
+          class="camera-label" 
+          *ngIf="getLabel(camera).text"
+          [style.background-color]="getLabel(camera).color"
+        >
+          {{ getLabel(camera).text }}
+        </div>
+      </div>
+      
+      <!-- Info Overlay -->
+      <div class="camera-info-overlay">
+        <div class="camera-info-text">
+          {{ getDisplayName(camera) }}, {{ getTimeAgo(camera) }}, {{ getDuration(camera) }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-state" *ngIf="isLoading">
+    <div class="loading-spinner"></div>
+    <p>Loading cameras...</p>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="!isLoading && filteredCameras.length === 0">
+    <div class="empty-icon">📷</div>
+    <h3>No cameras found</h3>
+    <p *ngIf="searchQuery">Try adjusting your search or check back later for new photos.</p>
+    <p *ngIf="!searchQuery">Check back later for new photos.</p>
   </div>
 </div>

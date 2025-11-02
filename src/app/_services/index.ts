@@ -8,3 +8,5 @@ export * from './payment.service';
 export * from './payment-history.service';
 export * from './user-subscription.service';
 export * from './photo-pack.service';
+export * from './example.service';
+export * from './camera.service';

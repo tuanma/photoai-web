@@ -1,71 +1,50 @@
 <!-- Examples Tab Content -->
 <div class="examples-content">
-  <!-- Category Filter -->
-  <div class="category-filter">
-    <button 
-      class="filter-btn" 
-      [class.active]="selectedCategory === 'all'"
-      (click)="filterByCategory('all')"
-    >
-      All
-    </button>
-    <button 
-      class="filter-btn" 
-      [class.active]="selectedCategory === 'business'"
-      (click)="filterByCategory('business')"
-    >
-      Business
-    </button>
-    <button 
-      class="filter-btn" 
-      [class.active]="selectedCategory === 'creative'"
-      (click)="filterByCategory('creative')"
-    >
-      Creative
-    </button>
-    <button 
-      class="filter-btn" 
-      [class.active]="selectedCategory === 'lifestyle'"
-      (click)="filterByCategory('lifestyle')"
-    >
-      Lifestyle
-    </button>
-    <button 
-      class="filter-btn" 
-      [class.active]="selectedCategory === 'fashion'"
-      (click)="filterByCategory('fashion')"
-    >
-      Fashion
-    </button>
+  <!-- Search Bar -->
+  <div class="search-section">
+    <div class="search-container">
+      <input 
+        type="text" 
+        class="search-input" 
+        placeholder="Search your photos by prompt..." 
+        [(ngModel)]="searchQuery"
+        (input)="onSearchChange()"
+      >
+    </div>
   </div>
 
   <!-- Examples Grid -->
-  <div class="examples-grid">
+  <div class="examples-grid" *ngIf="!isLoading">
     <div 
       class="example-card" 
       *ngFor="let example of filteredExamples; trackBy: trackByExampleId"
       (click)="selectExample(example)"
     >
       <div class="example-image">
-        <img [src]="example.image" [alt]="example.title">
-        <div class="example-overlay">
-          <div class="example-category">{{ example.category }}</div>
-        </div>
+        <img 
+          [src]="getImageUrl(example)" 
+          [alt]="getPromptText(example)"
+          (error)="$event.target.src='/assets/images/placeholder.svg'"
+        />
       </div>
       
-      <div class="example-info">
-        <h3 class="example-title">{{ example.title }}</h3>
-        <p class="example-description">{{ example.description }}</p>
-        
-        <div class="example-tags">
-          <span 
-            class="tag" 
-            *ngFor="let tag of example.tags"
-          >
-            {{ tag }}
-          </span>
-        </div>
+      <div class="example-prompt">
+        <p>{{ getPromptText(example) }}</p>
       </div>
     </div>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-state" *ngIf="isLoading">
+    <div class="loading-spinner"></div>
+    <p>Loading examples...</p>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="!isLoading && filteredExamples.length === 0">
+    <div class="empty-icon">📷</div>
+    <h3>No examples found</h3>
+    <p *ngIf="searchQuery">Try adjusting your search or check back later for new examples.</p>
+    <p *ngIf="!searchQuery">Check back later for new examples.</p>
   </div>
 </div>

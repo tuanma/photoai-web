@@ -2,125 +2,149 @@
   padding: 2rem;
   height: 100%;
   overflow-y: auto;
+  background: #1a1a1a; // Dark background
 }
 
-.category-filter {
-  display: flex;
-  gap: 0.5rem;
+.search-section {
   margin-bottom: 2rem;
-  flex-wrap: wrap;
 }
 
-.filter-btn {
+.search-container {
+  max-width: 400px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
   background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: white;
   font-size: 0.9rem;
-  cursor: pointer;
   transition: all 0.3s ease;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
   }
 
-  &.active {
-    background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
-    border-color: transparent;
-    color: white;
+  &:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15);
   }
 }
 
 .examples-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .example-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(40, 40, 40, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  overflow: hidden;
+  padding: 0;
   cursor: pointer;
   transition: all 0.3s ease;
+  overflow: hidden;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(50, 50, 50, 0.9);
     border-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
+  }
+
+  &.selected {
+    border: 2px solid #ff6b35; // Orange border when selected
   }
 }
 
 .example-image {
-  position: relative;
   width: 100%;
-  height: 200px;
+  aspect-ratio: 1;
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform 0.3s ease;
   }
 
-  .example-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
-    display: flex;
-    align-items: flex-end;
-    padding: 1rem;
-  }
-
-  .example-category {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    backdrop-filter: blur(10px);
+  .example-card:hover & img {
+    transform: scale(1.05);
   }
 }
 
-.example-info {
-  padding: 1.5rem;
+.example-prompt {
+  padding: 1rem;
+  min-height: 60px;
+
+  p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.8);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
-.example-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: white;
-  margin: 0 0 0.5rem 0;
-}
-
-.example-description {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.4;
-  margin: 0 0 1rem 0;
-}
-
-.example-tags {
+.loading-state {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.tag {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 0.2rem 0.6rem;
-  border-radius: 8px;
-  font-size: 0.75rem;
-  font-weight: 500;
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid #8B5CF6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  margin: 0;
+  max-width: 300px;
 }
 
 // Responsive Design
@@ -132,14 +156,5 @@
   .examples-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
-  }
-
-  .category-filter {
-    gap: 0.3rem;
-  }
-
-  .filter-btn {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
   }
 }
